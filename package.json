@@ -1,0 +1,22 @@
+{
+  "name": "website_new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nWhitcome/website_new.git"
+  },
+  "author": "Nathan Whitcome",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nWhitcome/website_new/issues"
+  },
+  "homepage": "https://github.com/nWhitcome/website_new#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
