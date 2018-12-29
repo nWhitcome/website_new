@@ -33,10 +33,12 @@ Vue.component('background_image', {
             picture_links: ['background_pictures/my_back_mountain.jpg', 'background_pictures/Badlands.jpg', 'background_pictures/Colorado_Top.jpg', 'background_pictures/Glacier1.jpg', 'background_pictures/Glacier2.jpg', 'background_pictures/Badlands2.jpg', 'background_pictures/Swing_Dance.jpg', 'background_pictures/Tetons1.jpg', 'background_pictures/Tetons2.jpg'],
 			current_picture_index: 0,
 			current_timer: setInterval(this.onClickForward, 10000),
+			slide_direction: "slide_left"
         }
 	},
 	methods: {
    	    onClickBack (event) {
+			this.slide_direction="slide_right";
             if(this.current_picture_index == 0){
 				this.current_picture_index = this.picture_links.length-1;
 			}
@@ -46,6 +48,7 @@ Vue.component('background_image', {
 			this.current_timer = setInterval(this.onClickForward, 10000);
   		},
   	    onClickForward (event) {
+			this.slide_direction="slide_left";
             if(this.current_picture_index == this.picture_links.length-1)
                 this.current_picture_index = 0;
             else
@@ -56,7 +59,7 @@ Vue.component('background_image', {
 	},
 	template:`
 	<div style="height: 100%;">
-		<transition-group name="fade" tag="div" class="outer_box" v-for="(item, index) in picture_links" style=" animation-duration: .75s; animation-name: fadebackground;">
+		<transition-group :name="slide_direction" tag="div" class="outer_box" v-for="(item, index) in picture_links" style=" animation-duration: 1s; animation-name: fadebackground;">
 			<div class="outer_box" :key="index" v-show="index == current_picture_index" v-bind:style="{ 'background-image': 'url(' + picture_links[index] + ')' }">
 			</div>
 		</transition-group>
