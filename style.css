@@ -4,16 +4,16 @@ html{
     overflow-y: hidden;
 }
 
-#outer_box{
-    background: url("my_back_mountain.jpg");
+.outer_box{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    position: relative;
-    height:calc(100% - 40px);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 1;
-    animation-duration: .75s;
-    animation-name: fadebackground;
 }
 
 body{
@@ -28,21 +28,24 @@ body{
 footer{
     background-color: white;
     width: 100%;
-    height:50px;
-    position: absolute;
+    height:100px;
+    position: fixed;
     bottom: 0px;
     animation-duration: .75s;
     animation-name: slideinfrombottom;
+    z-index: 1;
 }
 
 #top_info{
-    position: relative;
+    position: fixed;
+    top: 0px;
+    left: 0px;
     margin: 0;
     width: 100%;
     height: 100px;
     animation-duration: .75s;
     animation-name: slideinfromtop;
-    z-index:-1;
+    z-index:1;
 }
 
 #my_name{
@@ -84,3 +87,79 @@ footer{
         opacity: 100%;
     }
 }
+
+#arrow_button_left, #arrow_button_right{
+    vertical-align: center;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.7);
+    line-height: 70px;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+    z-index:1;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#arrow_button_left:hover, #arrow_button_right:hover{
+    background-color: white;
+}
+
+#arrow_button_left{
+
+}
+
+#arow_button_right{
+
+}
+
+#app{
+    height: 100%;
+}
+
+@font-face {
+    font-family: 'Material_Icons';
+    src: url('fonts/Material_Icons.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('fonts/Heebo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+i{
+    font-family: 'Material_Icons';
+    font-style: normal;
+}
+
+.cutout_arrow{
+    mix-blend-mode: screen;
+    background-color: white;
+    border-radius: 50%;
+}
+
+#background_picture{
+    width: 100%;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: all 1s ease;
+    overflow: hidden;
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+  }
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+    visibility: hidden;
+  }
