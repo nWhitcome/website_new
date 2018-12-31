@@ -27,52 +27,48 @@ body{
 
 footer{
     background-color: rgba(255, 255, 255, 0.95);
-    width: 100%;
+    left: 0;
+    right:0;
     height:100px;
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
     animation-duration: 1s;
     animation-name: slideinfrombottom;
     z-index: 1;
 }
-
-#top_info{
-
-}
-
-#my_name{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    height: 100px;
-    animation-duration: 1s;
-    animation-name: slideinfromtop;
-    z-index:1;
-    margin:0;
-    line-height:100px;
-    font-size: 50px;
-    padding-left: 20px;
+#top_bar_cutout{
     background-color: white;
-    color: black;
     mix-blend-mode: screen;
 }
 
-#name_black{
+#top_bar_text, #top_bar_cutout{
+    z-index:1;
     position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
+    left: 0;
     height: 100px;
+    padding: 0 20px 0 20px;
     animation-duration: 1s;
     animation-name: slideinfromtop;
-    z-index:1;
-    margin:0;
-    line-height:100px;
-    font-size: 50px;
-    padding-left: 20px;
-    color: rgba(0, 0, 0, 0.5);
+    line-height: 100px;
 }
+
+#top_bar_text{
+    color: rgba(0, 0, 0, 0.4);
+}
+
+
+#my_name{
+    float:left;
+    font-size: 50px;
+}
+
+#projects_text{
+    float: right;
+    font-size: 40px;
+}
+
 
 @keyframes slideinfromtop {
     from {
