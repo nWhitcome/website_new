@@ -63,14 +63,20 @@ footer{
 
 #my_name{
     flex-grow: 2;
-    font-size: 50px;
+    font-size: 46px;
 }
 
 .projects_text{
     margin: 0 20px;
-    font-size: 40px;
+    font-size: 36px;
     cursor: pointer;
     transition: .2s;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
 }
 
 .projects_text_selected{
@@ -182,7 +188,7 @@ i{
 }
 
 .fade-enter-active, .fade-leave-active {
-    transition: all 1s ease;
+    transition: all .2s ease;
     overflow: hidden;
     visibility: visible;
     opacity: 1;
@@ -210,4 +216,53 @@ i{
   }
 .slide_right-leave-to {
     transform: translate(100%, 0);
+}
+
+#middle_content{
+    position: fixed;
+    top: 100px;
+    bottom: 100px;
+    left: 0px;
+    right: 0px;
+    z-index: 1;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0, .5);
+    padding: 10px;
+}
+
+#middle_inner_content{
+    color: #555;
+    margin: 20px;
+    font-size: 26px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    
+}
+
+h1{
+    margin-top: 0px;
+    font-size: 34px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+p{
+    padding: 0 10px;
+    margin: 0;
+}
+
+.info_card{
+    z-index: 1;
+    background-color: white;
+    height: 600px;
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }

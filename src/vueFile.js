@@ -3,7 +3,7 @@
 Vue.component('top_bar', {
 	data: function () {
 		return {
-			selected: null,
+			selected: 'photos_text',
 		}
 	},
 	methods: {
@@ -37,12 +37,28 @@ Vue.component('top_bar', {
 			<div id="my_name">Nathan Whitcome</div>
 			<div v-bind:class="{projects_text_selected: selected == 'projects_text', projects_text: selected != 'projects_text'}" class="projects_text">Projects</div>
 			<div v-bind:class="{projects_text_selected: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text">Photos</div>
+			<div v-bind:class="{projects_text_selected: selected == 'music_text', projects_text: selected != 'music_text'}" class="projects_text">Music</div>
 		</div>
 		<div id="top_bar_text">
 			<div id="my_name">Nathan Whitcome</div>
 			<div class="projects_text" v-bind:class="{projects_text_selected_clear: selected == 'projects_text', projects_text: selected != 'projects_text'}" @click="headingClicked(false, 'projects_text')">Projects</div>
 			<div v-bind:class="{projects_text_selected_clear: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text" @click="headingClicked(true, 'photos_text')">Photos</div>
+			<div v-bind:class="{projects_text_selected_clear: selected == 'music_text', projects_text: selected != 'music_text'}" class="projects_text" @click="headingClicked(false, 'music_text')">Music</div>
 		</div>
+		<transition name="fade">
+			<div v-if="selected != 'photos_text'" id="middle_content">
+				<div v-if="selected == 'music_text'" id="middle_inner_content">
+					<div class="info_card">
+						<h1>Kaledoquiz 2018</h1>
+						<p>Test</p>
+					</div>
+					<div class="info_card">
+						<h1>Kaledoquiz 2018</h1>
+						<p>Test</p>
+					</div>
+				</div>
+			</div>
+		</transition>
 	</div>
 	`
 })
@@ -83,7 +99,7 @@ Vue.component('background_image', {
 		<transition-group :name="slide_direction" tag="div" class="outer_box" v-for="(item, index) in picture_links" :key="index" style=" animation-duration: 1s; animation-name: fadebackground;">
 			<div class="outer_box" :key="item" v-show="index == current_picture_index" v-bind:style="{ 'background-image': 'url(' + picture_links[index] + ')' }"></div>
 		</transition-group>
-		<transition-group name="fadebackground" tag="div" style="display:flex; height: 100%; align-items: center; justify-content: space-between;" v-show="buttons_visible">
+		<transition-group name="fade" tag="div" style="display:flex; height: 100%; align-items: center; justify-content: space-between;" v-show="buttons_visible">
 		    <div id="arrow_button_left" class="cutout_arrow" key="one" v-on:click="this.onClickBack">
 			    <i style="font-size:65px;">chevron_left</i>			
 		    </div>
