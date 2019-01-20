@@ -50,11 +50,11 @@ Vue.component('top_bar', {
 				<div v-if="selected == 'music_text'" id="middle_inner_content">
 					<div class="info_card">
 						<h1>Kaledoquiz 2018</h1>
-						<p>Test</p>
-					</div>
-					<div class="info_card">
-						<h1>Kaledoquiz 2018</h1>
-						<p>Test</p>
+						<p>KaledoQuiz is a competition put on every year by the radio station "the KURE" at Iowa State that involves a lot of trivia and projects in 
+						order to earn points. One of the projects was to create a video with an original song or cover that was done without any conventional instruments. 
+						I spent about 2.5 hours recording and creating this song using things I found on campus and in my room while my friend Austin directed and edited 
+						the video. We had lots of fun making it, and it really pushed my creativity.<p>
+							<iframe class="video_box" src="https://www.youtube.com/embed/I_DftkUpqmc" height="480" width="720" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
 					</div>
 				</div>
 			</div>
@@ -67,7 +67,18 @@ Vue.component('background_image', {
 	props: ['buttons_visible'],
 	data: function () {
 		return {
-			picture_links: ['background_pictures/my_back_mountain.jpg', 'background_pictures/Badlands.jpg', 'background_pictures/Colorado_Top.jpg', 'background_pictures/Glacier1.jpg', 'background_pictures/Glacier2.jpg', 'background_pictures/Badlands2.jpg', 'background_pictures/Swing_Dance.jpg', 'background_pictures/Tetons1.jpg', 'background_pictures/Tetons2.jpg'],
+			picture_links: ['src/background_pictures/my_back_mountain.jpg', 
+			'src/background_pictures/Badlands.jpg', 
+			'src/background_pictures/Colorado_Top.jpg', 
+			'src/background_pictures/Glacier1.jpg', 
+			'src/background_pictures/Glacier2.jpg', 
+			'src/background_pictures/Badlands2.jpg', 
+			'src/background_pictures/Swing_Dance.jpg', 
+			'src/background_pictures/Tetons1.jpg', 
+			'src/background_pictures/Tetons2.jpg',
+			'src/background_pictures/Tetons3.jpg',
+			'src/background_pictures/River.jpg',
+			'src/background_pictures/Campsite.jpg'],
 			current_picture_index: 0,
 			current_timer: setInterval(this.onClickForward, 10000),
 			slide_direction: "slide_left"
