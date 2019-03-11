@@ -1,5 +1,53 @@
 //var socket = io('http://localhost:3000'); 
 
+const store = new Vuex.Store({
+	state: {
+		picture_links: ['src/background_pictures/my_back_mountain.jpg', 
+			'src/background_pictures/Badlands.jpg', 
+			'src/background_pictures/Colorado_Top.jpg', 
+			'src/background_pictures/Glacier1.jpg', 
+			'src/background_pictures/Glacier2.jpg', 
+			'src/background_pictures/Badlands2.jpg', 
+			'src/background_pictures/Swing_Dance.jpg', 
+			'src/background_pictures/Tetons1.jpg', 
+			'src/background_pictures/Tetons2.jpg',
+			'src/background_pictures/Tetons3.jpg',
+			'src/background_pictures/River.jpg',
+			'src/background_pictures/Campsite.jpg'],
+			current_picture_index: 0,
+			current_timer: 0,
+			slide_direction: "slide_left"
+	},
+	mutations:{
+		setTimer(state){
+			state.current_timer = setInterval(store.commit('onClickForward'), 10000);
+		},
+		stopTimer(state){
+			clearInterval(state.current_timer);
+		},
+		onClickBack(state) {
+			state.slide_direction = "slide_right";
+			if (state.current_picture_index == 0) {
+				state.current_picture_index = state.picture_links.length - 1;
+			}
+			else
+				state.current_picture_index = state.current_picture_index - 1;
+			clearInterval(state.current_timer);
+			state.current_timer = setInterval(state.onClickForward, 10000);
+		},
+		onClickForward(state) {
+			console.log('ACTIVE')
+			state.slide_direction = "slide_left";
+			if (state.current_picture_index == state.picture_links.length - 1)
+				state.current_picture_index = 0;
+			else
+				state.current_picture_index = state.current_picture_index + 1;
+			clearInterval(state.current_timer);
+			state.current_timer = setInterval(state.onClickForward, 10000);
+		},
+	},
+})
+
 Vue.component('top_bar', {
 	data: function () {
 		return {
@@ -53,7 +101,7 @@ Vue.component('top_bar', {
 						<p>KaledoQuiz is a competition put on every year by the radio station "the KURE" at Iowa State that involves a lot of trivia and projects in 
 						order to earn points. One of the projects was to create a video with an original song or cover that was done without any conventional instruments. 
 						I spent about 2.5 hours recording and creating this song using things I found on campus and in my room while my friend Austin directed and edited 
-						the video. We had lots of fun making it, and it really pushed my creativity.<p>
+						the video. We had lots of fun making it, and it really pushed my creativity.</p>
 							<iframe class="video_box" src="https://www.youtube.com/embed/I_DftkUpqmc" height="480" width="720" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
 					</div>
 				</div>
@@ -105,6 +153,9 @@ Vue.component('background_image', {
 			this.current_timer = setInterval(this.onClickForward, 10000);
 		},
 	},
+	created: function(){
+		this.$store.commit('setTimer')
+	},
 	template: `
 	<div style="height: 100%;">
 		<transition-group :name="slide_direction" tag="div" class="outer_box" v-for="(item, index) in picture_links" :key="index" style=" animation-duration: 1s; animation-name: fadebackground;">
@@ -124,6 +175,7 @@ Vue.component('background_image', {
 
 new Vue({
 	el: '#app',
+	store,
 	data: function(){
 		return {
 			photo_buttons_visible: true,
@@ -140,3 +192,4 @@ new Vue({
 		}
 	}
 });
+
