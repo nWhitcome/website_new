@@ -68,7 +68,7 @@ footer{
 
 .projects_text{
     margin: 0 20px;
-    font-size: 30px;
+    font-size: 26px;
     cursor: pointer;
     transition: .2s;
     -webkit-touch-callout: none; /* iOS Safari */
