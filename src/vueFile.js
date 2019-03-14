@@ -39,6 +39,7 @@ Vue.component('top_bar', {
 			<div v-if="selected != 'photos_text'" id="middle_content">
 				<div v-if="selected == 'music_text'" id="middle_inner_content">
 					<div class="info_card">
+						<div class="inner_box">
 						<h1>Kaleidoquiz</h1>
 						<p>KaleidoQuiz is a competition put on every year by the radio station "the KURE" at Iowa State that involves a lot of trivia and projects in 
 						order to earn points. There is always a musical video challenge that I participate in.</p>
@@ -60,29 +61,20 @@ Vue.component('top_bar', {
 						<br>
 						It was a lot of fun and really made me think very creatively. I'm proud of how it came out especially since we only had six hours to do the whole thing.</p>
 							<iframe class="video_box" src="https://www.youtube.com/embed/I_DftkUpqmc" height="480" width="720" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+						</div>
 					</div>
 					<div class="info_card">
+						<div class="inner_box">
 						<h1>Tetrad</h1>
-						<p>KaleidoQuiz is a competition put on every year by the radio station "the KURE" at Iowa State that involves a lot of trivia and projects in 
-						order to earn points. There is always a musical video challenge that I participate in.</p>
-						<br>
-						<h2>2019</h2>
-						<p>The musical challenge for 2019 involved creating a diss track about ourselves. There was another Nathan in our group that knows how to rap pretty well, so him and I
-						teamed up to make the song and video below. I made a simple trap beat in about 20 minutes while he wrote some disses. I then recorded his voice, mixing and mastering it
-						while him and another teammate of mine recorded a video for it.
+						<p>Tetrad was a band I started with my friends right before my senior year of high school. 
 						<br>
 						<br>
-						My music production skills improved an incredible amount compared to the year before. Writing music on a weekly basis also really helped me write something
-						that worked for what we were trying to accomplish.</p>
-						<br>
-						<br>
-						<h2>2018</h2>
-						<p>I worked with my teammate Ausin to create a music video where the prompt was to create a song that didn't use any instruments. I recorded all of the sound in the
-						video from my dorm room and put them together in Ableton Live. Austin and I then went out and recorded a video for it, creating a robot helmet for me to wear.
-						<br>
-						<br>
-						It was a lot of fun and really made me think very creatively. I'm proud of how it came out especially since we only had six hours to do the whole thing.</p>
-							<iframe class="video_box" src="https://www.youtube.com/embed/I_DftkUpqmc" height="480" width="720" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+						I played guitar and did back up vocals, as well as writing the guitar and bass parts while helping write vocal lines and lyrics on occasion.
+						We did relatively well, winning the battle of the bands for Cary, IL and getting second at regionals with an opportunity to go to state.
+						 Unfortunately, the band isn't around anymore, but we did record some music on our own as well as in a studio.
+						  We finished an EP called "It Came From the Basement!" since we wrote almost all of the music in our drummer's basement.
+						   Our music can be found on most streaming services by clicking on the links below.</p>
+						</div>
 					</div>
 				</div>
 			</div>
