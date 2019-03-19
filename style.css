@@ -280,11 +280,46 @@ p{
     height:0;
 	position:relative;
     padding-bottom: 56.25%;
-    max-width: 720px;
-    max-height: 480px;
 }
 
 .inner_box{
     width: 100%;
     max-width: 1280px;
+}
+
+.small_image_holder{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 15px 0;
+}
+
+.resume_image{
+    height: 100px;
+    padding: 10px 20px;
+}
+
+#resume_content{
+    columns: 400px 2;
+    width: 100%;
+}
+
+.resume_content_inner{
+    width: 50%;
+    min-width: 400px;
+}
+
+.par_padding{
+    padding-left: 15px;
+}
+
+ul, ol{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#pathfinder_iframe{
+    width: 100%;
+    height: 900px;
 }
