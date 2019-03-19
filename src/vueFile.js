@@ -64,6 +64,10 @@ Vue.component('resume_page', {
 					<img src="src/resume_pictures/SQL.png" class="resume_image">
 					<img src="src/resume_pictures/vue.png" class="resume_image">
 				</div>
+				<div class="button_bar" style="padding: 0 0 10px;">
+					<div class="github_image no_select" onclick="window.open('https://github.com/nWhitcome/','mywindow');">Github</div>
+					<div class="linkedin_button no_select" onclick="window.open('https://www.linkedin.com/in/nathan-whitcome-310977149/','mywindow');">Linkedin</div>
+				</div>
 				<div id="resume_content">
 						<h2>Objective</h2>
 						<p class="par_padding">Find a Spring or Summer 2019 internship or
@@ -147,7 +151,11 @@ Vue.component('projects_page', {
 	<div id="middle_inner_content">
 		<div class="info_card">
 			<div class="inner_box">
-				<h1>Pathfinder</h1>
+				<div class="button_bar">
+					<h1>Pathfinder</h1>
+					<div class="github_image no_select" onclick="window.open('https://github.com/nWhitcome/hackisu2018','mywindow');">Github</div>
+					<div class="github_image_red no_select" onclick="window.open('https://hackisu2018dev.herokuapp.com/','mywindow');" style="">Webpage</div>
+				</div>
 				<p>Pathfinder is my project from Hack ISU 2018 using the Google Maps API. I had no idea what I wanted to do going in but decided to make something that had to do with running 
 				after being inspired by my girlfriend. Hack ISU is a 36-hour competition, so I did as much development as I could in that time. I had never used the maps API before but I did 
 				have a lot of experience with Javascript. The app allows the user to put in a mileage number and a direction, generating a path of close to that length for the user to run on. 
@@ -177,7 +185,7 @@ Vue.component('projects_page', {
 				<p>I haven't changed much of this program since I created due to a heavy workload. I really want to work on it since I know it could make the lives of a lot of people 
 				a little bit easier. I hope to solve the problems listed above by grabbing shapefiles from OpenStreetMaps and using that data to generate paths, which would give me a lot 
 				more control over how I process the data and would allow me to create looping paths. It would also be a lot faster because I would not have to send anything to Google or 
-				wait for a response. I also got my brother <a href="http://www.davidwhitcome.com">David Whitcome</a> involved we might work on the project together at some point in the future.</p>
+				wait for a response. I also got my brother <a href="http://www.davidwhitcome.com">David Whitcome</a> involved, so we might work on the project together at some point in the future.</p>
 				</p>
 				<iframe src="https://hackisu2018dev.herokuapp.com/" id="pathfinder_iframe"></iframe>
 			</div>
@@ -248,7 +256,8 @@ Vue.component('background_image', {
 				'src/background_pictures/Tetons2.jpg',
 				'src/background_pictures/Tetons3.jpg',
 				'src/background_pictures/River.jpg',
-				'src/background_pictures/Campsite.jpg'],
+				'src/background_pictures/Campsite.jpg',
+				'src/background_pictures/Tetons_album.jpg'],
 			current_picture_index: 0,
 			current_timer: setInterval(this.onClickForward, 10000),
 			slide_direction: "slide_left"
