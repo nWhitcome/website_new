@@ -197,7 +197,7 @@ i{
 }
 
 .fade-enter-active, .fade-leave-active {
-    transition: all .2s ease;
+    transition: all .15s ease;
     overflow: hidden;
     visibility: visible;
     opacity: 1;
@@ -334,48 +334,6 @@ ul, ol{
 #pathfinder_iframe{
     width: 100%;
     height: 900px;
-}
-
-.github_image, .github_image_red, .linkedin_button{
-    color:white;
-    padding: 5px 15px;
-    font-size: 20px;
-    margin: 5px 10px;
-    height: 30px;
-    line-height: 30px;
-    vertical-align: center;
-    border-radius: 25px;
-    transition: .1s;
-    cursor: pointer;
-}
-
-.github_image{ background-color: #555; }
-
-.github_image_red{ background-color: #A8383B; }
-
-.linkedin_button{ background-color: #4875B4; }
-
-.github_image_red:hover{ background-color: rgb(141, 46, 49); }
-
-.linkedin_button:hover{ background-color: rgb(62, 99, 151); }
-
-.github_image:hover{
-    background-color: #444;
-}
-
-.github_image:active{
-    transition: 0s;
-    background-color: #666;
-}
-
-.github_image_red:active{
-    transition: 0s;
-    background-color: rgb(187, 63, 67);
-}
-
-.linkedin_button:active{
-    transition: 0s;
-    background-color: rgb(83, 133, 202);
 }
 
 .button_bar{

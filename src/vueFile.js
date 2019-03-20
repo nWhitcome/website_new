@@ -65,8 +65,8 @@ Vue.component('resume_page', {
 					<img src="src/resume_pictures/vue.png" class="resume_image">
 				</div>
 				<div class="button_bar" style="padding: 0 0 10px;">
-					<div class="github_image no_select" onclick="window.open('https://github.com/nWhitcome/','mywindow');">Github</div>
-					<div class="linkedin_button no_select" onclick="window.open('https://www.linkedin.com/in/nathan-whitcome-310977149/','mywindow');">Linkedin</div>
+					<custom_button text_val="Github" r_val=85 g_val=85 b_val=85 link_value='https://github.com/nWhitcome/'></custom_button>
+					<custom_button text_val="LinkedIn" r_val=72 g_val=117 b_val=180 link_value='https://www.linkedin.com/in/nathan-whitcome-310977149/'></custom_button>
 				</div>
 				<div id="resume_content">
 						<h2>Objective</h2>
@@ -153,8 +153,8 @@ Vue.component('projects_page', {
 			<div class="inner_box">
 				<div class="button_bar">
 					<h1>Pathfinder</h1>
-					<div class="github_image no_select" onclick="window.open('https://github.com/nWhitcome/hackisu2018','mywindow');">Github</div>
-					<div class="github_image_red no_select" onclick="window.open('https://hackisu2018dev.herokuapp.com/','mywindow');" style="">Webpage</div>
+					<custom_button text_val="Github" r_val=85 g_val=85 b_val=85 link_value='https://github.com/nWhitcome/hackisu2018'></custom_button>
+					<custom_button text_val="Webpage" r_val=168 g_val=56 b_val=59 link_value='https://hackisu2018dev.herokuapp.com/'></custom_button>
 				</div>
 				<p>Pathfinder is my project from Hack ISU 2018 using the Google Maps API. I had no idea what I wanted to do going in but decided to make something that had to do with running 
 				after being inspired by my girlfriend. Hack ISU is a 36-hour competition, so I did as much development as I could in that time. I had never used the maps API before but I did 
@@ -180,6 +180,7 @@ Vue.component('projects_page', {
 						inefficient and would take a very long time if I have to keep sending Google data and waiting for a response.
 						</li>
 					</ul>
+					</li>
 				</ol><br>
 				<h2>Future Development</h2>
 				<p>I haven't changed much of this program since I created due to a heavy workload. I really want to work on it since I know it could make the lives of a lot of people 
@@ -240,6 +241,47 @@ Vue.component('music_page', {
 	`
 });
 
+Vue.component('custom_button', {
+	props:['r_val', 'g_val', 'b_val', 'text_val', 'link_value'],
+	created(){
+		this.mainStyle.backgroundColor = 'rgb(' + this.r_val + ', ' + this.g_val + ',' +  this.b_val + ')';
+	},
+	methods:{
+		darken_button(){
+			this.mainStyle.backgroundColor = 'rgb(' + (parseInt(this.r_val) - 15) + ', ' + (parseInt(this.g_val) - 15) + ',' +  (parseInt(this.b_val) - 15) + ')';
+		},
+		return_button(goToPage){
+			this.mainStyle.backgroundColor = 'rgb(' + this.r_val + ', ' + this.g_val + ',' +  this.b_val + ')';
+			this.mainStyle.transition = '.1s'
+			if(goToPage){window.open(this.link_value,'mywindow');}
+		},
+		click_button(){
+			this.mainStyle.backgroundColor = 'rgb(' + (parseInt(this.r_val) + 15) + ', ' + (parseInt(this.g_val) + 15) + ',' +  (parseInt(this.b_val) + 15) + ')';
+			this.mainStyle.transition = '0s';
+		}
+	},
+	data: function(){
+		return{
+			mainStyle:{
+				'color': 'white',
+				padding: '5px 15px',
+				backgroundColor: '#555',
+    			fontSize: '20px',
+    			margin: '5px 10px',
+    			height: '30px',
+    			'line-height': '30px',
+    			'vertical-align': 'center',
+    			'border-radius': '25px',
+    			transition: '.1s',
+				'cursor': 'pointer'
+			}
+		}
+	},
+	template:
+		`
+		<div v-bind:style="mainStyle" class="no_select" @mouseover="darken_button()" @mouseleave="return_button(false)" @mousedown="click_button()" @mouseup="return_button(true)">{{text_val}}</div>
+		`
+});
 
 Vue.component('background_image', {
 	props: ['buttons_visible'],
@@ -283,9 +325,6 @@ Vue.component('background_image', {
 			clearInterval(this.current_timer);
 			this.current_timer = setInterval(this.onClickForward, 10000);
 		},
-	},
-	created: function () {
-		this.$store.commit('setTimer')
 	},
 	template: `
 	<div style="height: 100%;">
