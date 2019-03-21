@@ -1,11 +1,17 @@
-//var socket = io('http://localhost:3000'); 
+var socket = io(); 
 
 const store = new Vuex.Store({
 	state: {
 		bottom_visible: 0,
 		current_picture_index: 0,
+		winWidth: null,
+		winHeight: null,
 	},
 	mutations: {
+		adjust_width_height(state, width, height){
+			state.winWidth = width;
+			state.winHeight = height;
+		}
 	},
 })
 
@@ -13,37 +19,99 @@ Vue.component('top_bar', {
 	data: function () {
 		return {
 			selected: 'photos_text',
+			menu_visible: false,
 		}
 	},
 	methods: {
 		headingClicked(buttonsVisible, text) {
 			this.$root.photo_buttons_visible = buttonsVisible;
 			this.selected = text;
-		}
+			if(this.menu_visible){this.hamburgerClicked()};
+		},
+		hamburgerClicked() {
+			this.menu_visible = !this.menu_visible;
+		},
 	},
 	template: `
 	<div style="height: 100%;">
 		<div id="top_bar_cutout">
-			<div id="my_name">Nathan Whitcome</div>
-			<div v-bind:class="{projects_text_selected: selected == 'projects_text', projects_text: selected != 'projects_text'}" class="projects_text">Projects</div>
-			<div v-bind:class="{projects_text_selected: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text">Photos</div>
-			<div v-bind:class="{projects_text_selected: selected == 'music_text', projects_text: selected != 'music_text'}" class="projects_text">Music</div>
-			<div v-bind:class="{projects_text_selected: selected == 'resume_text', projects_text: selected != 'resume_text'}" class="projects_text">Résumé</div>
+			<div id="my_name" v-if="this.$store.state.winWidth > 900">Nathan Whitcome</div>
+			<div id="my_name" v-else>NW</div>
+			<div style="display:flex; align-items: center;" v-if="this.$store.state.winWidth > 600">
+				<div v-bind:class="{projects_text_selected: selected == 'projects_text', projects_text: selected != 'projects_text'}" class="projects_text">Projects</div>
+				<div v-bind:class="{projects_text_selected: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text">Photos</div>
+				<div v-bind:class="{projects_text_selected: selected == 'music_text', projects_text: selected != 'music_text'}" class="projects_text">Music</div>
+				<div v-bind:class="{projects_text_selected: selected == 'resume_text', projects_text: selected != 'resume_text'}" class="projects_text">Résumé</div>
+			</div>
+			<div v-else class='no_select'><i style='font-size:50px;'>menu</i></div>
 		</div>
 		<div id="top_bar_text">
-			<div id="my_name">Nathan Whitcome</div>
-			<div class="projects_text" v-bind:class="{projects_text_selected_clear: selected == 'projects_text', projects_text: selected != 'projects_text'}" @click="headingClicked(false, 'projects_text')">Projects</div>
-			<div v-bind:class="{projects_text_selected_clear: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text" @click="headingClicked(true, 'photos_text')">Photos</div>
-			<div v-bind:class="{projects_text_selected_clear: selected == 'music_text', projects_text: selected != 'music_text'}" class="projects_text" @click="headingClicked(false, 'music_text')">Music</div>
-			<div v-bind:class="{projects_text_selected_clear: selected == 'resume_text', projects_text: selected != 'resume_text'}" class="projects_text" @click="headingClicked(false, 'resume_text')">Résumé</div>
+			<div id="my_name" v-if="this.$store.state.winWidth > 900">Nathan Whitcome</div>
+			<div id="my_name" v-else>NW</div>
+			<div style="display:flex; align-items: center;" v-if="this.$store.state.winWidth > 600">
+				<div class="projects_text" v-bind:class="{projects_text_selected_clear: selected == 'projects_text', projects_text: selected != 'projects_text'}" @click="headingClicked(false, 'projects_text')">Projects</div>
+				<div v-bind:class="{projects_text_selected_clear: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text" @click="headingClicked(true, 'photos_text')">Photos</div>
+				<div v-bind:class="{projects_text_selected_clear: selected == 'music_text', projects_text: selected != 'music_text'}" class="projects_text" @click="headingClicked(false, 'music_text')">Music</div>
+				<div v-bind:class="{projects_text_selected_clear: selected == 'resume_text', projects_text: selected != 'resume_text'}" class="projects_text" @click="headingClicked(false, 'resume_text')">Résumé</div>
+			</div>
+			<div v-else @click='hamburgerClicked()' class='no_select'><i style='font-size:50px; cursor: pointer;'>menu</i></div>
 		</div>
-		<transition name="fade">
-			<div v-if="selected != 'photos_text'" id="middle_content">
+		<transition name="slide_left" v-if='menu_visible && this.$store.state.winWidth < 600'>
+			<menu_overlay key='menu' :selected='selected' @headingClicked='headingClicked'></menu_overlay>
+		</transition>
+		<transition-group name="fade" tag="div" v-else-if="selected != 'photos_text'">
+			<div  id="middle_content" key='middle'>
 				<music_page v-if="selected == 'music_text'"></music_page>
 				<resume_page v-else-if="selected == 'resume_text'"></resume_page>
 				<projects_page v-else-if="selected == 'projects_text'"></projects_page>
 			</div>
-		</transition>
+		</transition-group>
+	</div>
+	`
+})
+
+Vue.component('menu_overlay', {
+	props:['selected'],
+	methods:{
+		headingClicked(buttonsVisible, text){
+			this.$emit('headingClicked', buttonsVisible, text);
+		}
+	},
+	template:
+	`
+	<div style='position: absolute; left: 0; right: 0; top: 110px; bottom: 0;'>
+		<div id='menu_overlay'>
+			<div style='position: absolute; top: 0px; bottom: 0px; padding-top: 50px;'>
+				<div class='bar_item_wrap'>
+					<div v-bind:class="{projects_text_selected: selected == 'projects_text', projects_text: selected != 'projects_text'}" class="projects_text menu_font">Projects</div>
+				</div>
+				<div class='bar_item_wrap'>
+					<div v-bind:class="{projects_text_selected: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text menu_font">Photos</div>
+				</div>
+				<div class='bar_item_wrap'>
+					<div v-bind:class="{projects_text_selected: selected == 'music_text', projects_text: selected != 'music_text'}" class="projects_text menu_font">Music</div>
+				</div>
+				<div class='bar_item_wrap'>
+					<div v-bind:class="{projects_text_selected: selected == 'resume_text', projects_text: selected != 'resume_text'}" class="projects_text menu_font">Résumé</div>
+				</div>
+			</div>
+		</div>
+		<div style='display: flex; justify-content: center; position: absolute; left: 0; right: 0; top: 0; bottom: 0;'>
+			<div style='color: rgba(0, 0, 0, .4); position: absolute; top: 0px; bottom: 0px; display: flex; flex-direction: column; mix-blend-mode: normal; z-index: 7; padding-top: 50px;'>
+				<div class='bar_item_wrap'>
+					<div class="projects_text menu_font" v-bind:class="{projects_text_selected_clear: selected == 'projects_text', projects_text: selected != 'projects_text'}" @click="headingClicked(false, 'projects_text')">Projects</div>
+				</div>
+				<div class='bar_item_wrap'>
+					<div v-bind:class="{projects_text_selected_clear: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text menu_font" @click="headingClicked(true, 'photos_text')">Photos</div>
+				</div>
+				<div class='bar_item_wrap'>
+					<div v-bind:class="{projects_text_selected_clear: selected == 'music_text', projects_text: selected != 'music_text'}" class="projects_text menu_font" @click="headingClicked(false, 'music_text')">Music</div>
+				</div>
+				<div class='bar_item_wrap'>
+					<div v-bind:class="{projects_text_selected_clear: selected == 'resume_text', projects_text: selected != 'resume_text'}" class="projects_text menu_font" @click="headingClicked(false, 'resume_text')">Résumé</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	`
 })
@@ -142,6 +210,7 @@ Vue.component('resume_page', {
 				</div>
 			</div>
 		</div>
+		<div class="info_card">© 2019 Nathan Whitcome</div>
 	</div>
 	`
 });
@@ -188,12 +257,97 @@ Vue.component('projects_page', {
 				more control over how I process the data and would allow me to create looping paths. It would also be a lot faster because I would not have to send anything to Google or 
 				wait for a response. I also got my brother <a href="http://www.davidwhitcome.com">David Whitcome</a> involved, so we might work on the project together at some point in the future.</p>
 				</p>
-				<iframe src="https://hackisu2018dev.herokuapp.com/" id="pathfinder_iframe"></iframe>
+				<minimize_content html_insert="<iframe src='https://hackisu2018dev.herokuapp.com/' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
 			</div>
 		</div>
+		<div class="info_card">
+			<div class="inner_box">
+				<div class="button_bar">
+					<h1>Old Website</h1>
+					<custom_button text_val="Github" r_val=85 g_val=85 b_val=85 link_value='https://github.com/nWhitcome/nWhitcome.github.io'></custom_button>
+					<custom_button text_val="Webpage" r_val=168 g_val=56 b_val=59 link_value='nWhitcome.github.io'></custom_button>
+				</div>
+				<p>This was the first website I ever built. I used time that I had while I wasn't working one summer to teach myself HTML and CSS. There are a lot of things I
+				did inefficiently but I thought it came out looking pretty good considering how little I knew at the time. I eventually took a class at school on the basics of HTML and CSS 
+				where I learned the proper way to do a lot of what I had already been doing. I decided to make the website you're currently on after getting 
+				a lot more experience with Vue and Node.js at work. I wanted to show what I learned rather than just talking about it. The new site is also my first use of Vuex, which I think 
+				will be important for me to know how to use in the future.</p>
+
+				<minimize_content html_insert="<iframe src='http://nWhitcome.github.io' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
+			</div>
+		</div>
+		<div class="info_card">© 2019 Nathan Whitcome</div>
 	</div>
 	`
 });
+
+Vue.component('minimize_bar', {
+	data:function(){
+		return{
+			closed_state: false,
+			mainStyle:{
+				'border-top-left-radius': '8px',
+				'border-top-right-radius': '8px',
+				borderBottomRightRadius: '0px',
+				borderBottomLeftRadius: '0px',
+			}
+		}
+	},
+	methods:{
+		switch_hidden(){
+			this.closed_state = !this.closed_state;
+			if(this.closed_state == true){
+				this.mainStyle.borderBottomRightRadius = '8px';
+				this.mainStyle.borderBottomLeftRadius = '8px';
+			}
+			else{
+				this.mainStyle.borderBottomRightRadius = '0px';
+				this.mainStyle.borderBottomLeftRadius = '0px';
+			}
+		}
+	},
+	template:`
+		<div class="minimize_bar no_select" v-bind:style="mainStyle" @click="switch_hidden()">
+			<div style="width: 100%; height: 100%;" v-if="closed_state"><i>keyboard_arrow_down</i><i>keyboard_arrow_down</i><i>keyboard_arrow_down</i></div>
+			<div style="width: 100%; height: 100%;" v-else><i>keyboard_arrow_up</i><i>keyboard_arrow_up</i><i>keyboard_arrow_up</i></div>
+		</div>
+	`
+})
+
+Vue.component('minimize_content', {
+	props:['html_insert'],
+	data:function(){
+		return{
+			closed_state: false,
+			content: null,
+			mainStyle:{
+				height: 'auto',
+				overflow:'hidden'
+			}
+		}
+	},
+	created() {
+		this.content = this.html_insert;
+	},
+	methods:{
+		switch_hidden(){
+			this.closed_state = !this.closed_state;
+			if(this.closed_state == true){
+				this.mainStyle.height = '35px';
+			}
+			else{
+				this.mainStyle.height = 'auto';
+			}
+		}
+	},
+	template:`
+		<div v-bind:style="mainStyle" @click="switch_hidden()">
+			<minimize_bar></minimize_bar>
+			<span v-html="content"></span>
+		</div>
+	`
+})
+
 
 Vue.component('music_page', {
 	template: `
@@ -220,23 +374,34 @@ Vue.component('music_page', {
 				<br>
 				<br>
 				It was a lot of fun and really made me think very creatively. I'm proud of how it came out especially since we only had six hours to do the whole thing.</p>
-				<iframe class="video_box" src="https://www.youtube.com/embed/I_DftkUpqmc" height="480" width="720" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
-				</div>
+				<minimize_content html_insert="<div class='video_box_wrapper'><iframe class='video_box' src='https://www.youtube.com/embed/I_DftkUpqmc' frameborder='0' allow='encrypted-media' allowfullscreen></iframe></div"></minimize_content>
+				
 			</div>
-			<div class="info_card">
-				<div class="inner_box">
+		</div>
+		<div class="info_card">
+			<div class="inner_box">
+				<div class="button_bar">
 					<h1>Tetrad</h1>
-					<p>Tetrad was a band I started with my friends right before my senior year of high school. 
-					<br>
-					<br>
-					I played guitar and did back up vocals, as well as writing the guitar and bass parts while helping write vocal lines and lyrics on occasion.
-					We did relatively well, winning the battle of the bands for Cary, IL and getting second at regionals with an opportunity to go to state.
-				 	Unfortunately, the band isn't around anymore, but we did record some music on our own as well as in a studio.
-					  We finished an EP called "It Came From the Basement!" since we wrote almost all of the music in our drummer's basement.
-					   Our music can be found on most streaming services by clicking on the links below.</p>
+					<custom_button text_val="Spotify" r_val=29 g_val=185 b_val=84 link_value='https://open.spotify.com/album/7AbFNyyBbA9RBzZfUYWq6Z'></custom_button>
+					<custom_button text_val="Google Play" r_val=253 g_val=140 b_val=0 link_value='https://play.google.com/store/music/album/Tetrad_It_Came_from_the_Basement?id=Bqym4zpa5xxa7bmzygzlf3ubyxq'></custom_button>
+					<custom_button text_val="Bandcamp" r_val=98 g_val=154 b_val=169 link_value='https://thebandtetrad.bandcamp.com/'></custom_button>
+					<custom_button text_val="Facebook" r_val=59 g_val=89 b_val=152 link_value='https://www.facebook.com/TheBandTetrad'></custom_button>
+				</div>
+				<p>Tetrad was a band I started with my friends right before my senior year of high school. 
+				<br>
+				<br>
+				I played guitar and did back up vocals, as well as writing the guitar and bass parts while helping write vocal lines and lyrics on occasion.
+				We did relatively well, winning the battle of the bands for Cary, IL and getting second at regionals with an opportunity to go to state.
+			 	Unfortunately, the band isn't around anymore, but we did record some music on our own as well as in a studio.
+				  We finished an EP called "It Came From the Basement!" since we wrote almost all of the music in our drummer's basement.
+				   Our music can be found on most streaming services by clicking on the buttons next the the name above.</p>
+				<div class="multi_image_holder">
+					<img class="fifty_width_image" src="src/tetrad_pictures/band_pic.jpg">
+					<img class="fifty_width_image" src="src/tetrad_pictures/band_pic_2.jpg">
 				</div>
 			</div>
 		</div>
+		<div class="info_card">© 2019 Nathan Whitcome</div>
 	</div>
 	`
 });
@@ -357,8 +522,7 @@ new Vue({
 	},
 	methods: {
 		handleResize() {
-			this.winWidth = window.innerWidth;
-			this.winHeight = window.innerHeight;
+			store.commit('adjust_width_height', window.innerWidth, window.innerHeight);
 		}
 	}
 });
