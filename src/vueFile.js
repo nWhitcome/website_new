@@ -35,8 +35,8 @@ Vue.component('top_bar', {
 	template: `
 	<div style="height: 100%;">
 		<div id="top_bar_cutout">
-			<div id="my_name" v-if="this.$store.state.winWidth > 900">Nathan Whitcome</div>
-			<div id="my_name" v-else>NW</div>
+			<div id="my_name" class='no_select' v-if="this.$store.state.winWidth > 900">Nathan Whitcome</div>
+			<div id="my_name" class='no_select' v-else>NW</div>
 			<div style="display:flex; align-items: center;" v-if="this.$store.state.winWidth > 600">
 				<div v-bind:class="{projects_text_selected: selected == 'projects_text', projects_text: selected != 'projects_text'}" class="projects_text">Projects</div>
 				<div v-bind:class="{projects_text_selected: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text">Photos</div>
@@ -46,8 +46,8 @@ Vue.component('top_bar', {
 			<div v-else class='no_select'><i style='font-size:50px;'>menu</i></div>
 		</div>
 		<div id="top_bar_text">
-			<div id="my_name" v-if="this.$store.state.winWidth > 900">Nathan Whitcome</div>
-			<div id="my_name" v-else>NW</div>
+			<div id="my_name" class='no_select' v-if="this.$store.state.winWidth > 900">Nathan Whitcome</div>
+			<div id="my_name" class='no_select' v-else>NW</div>
 			<div style="display:flex; align-items: center;" v-if="this.$store.state.winWidth > 600">
 				<div class="projects_text" v-bind:class="{projects_text_selected_clear: selected == 'projects_text', projects_text: selected != 'projects_text'}" @click="headingClicked(false, 'projects_text')">Projects</div>
 				<div v-bind:class="{projects_text_selected_clear: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text" @click="headingClicked(true, 'photos_text')">Photos</div>
