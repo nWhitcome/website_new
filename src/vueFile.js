@@ -273,7 +273,7 @@ Vue.component('projects_page', {
 				a lot more experience with Vue and Node.js at work. I wanted to show what I learned rather than just talking about it. The new site is also my first use of Vuex, which I think 
 				will be important for me to know how to use in the future.</p>
 
-				<minimize_content html_insert="<iframe src='http://nWhitcome.github.io' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
+				<minimize_content html_insert="<iframe src='https://nWhitcome.github.io' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
 			</div>
 		</div>
 		<div class="info_card">© 2019 Nathan Whitcome</div>
