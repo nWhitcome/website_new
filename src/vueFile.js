@@ -126,7 +126,7 @@ Vue.component('resume_page', {
 					<img src="src/resume_pictures/CSS3_logo_and_wordmark.svg.png" class="resume_image">
 					<img src="src/resume_pictures/HTML.png" class="resume_image">
 					<img src="src/resume_pictures/Git-Logo-Black.png" class="resume_image">
-					<img src="src/resume_pictures/java_logo_640.jpg" class="resume_image">
+					<img src="src/resume_pictures/java_logo_640.png" class="resume_image">
 					<img src="src/resume_pictures/nodejs-new-white.png" class="resume_image">
 					<img src="src/resume_pictures/React.png" class="resume_image">
 					<img src="src/resume_pictures/SQL.png" class="resume_image">
