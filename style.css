@@ -424,3 +424,8 @@ ul, ol{
     display: flex;
     align-items: center;
 }
+
+.bottom_copyright{
+    white-space: nowrap;
+  overflow: hidden;
+}

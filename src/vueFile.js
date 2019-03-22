@@ -210,7 +210,7 @@ Vue.component('resume_page', {
 				</div>
 			</div>
 		</div>
-		<div class="info_card">© 2019 Nathan Whitcome</div>
+		<div class="info_card bottom_copyright">© 2019 Nathan Whitcome</div>
 	</div>
 	`
 });
@@ -276,7 +276,7 @@ Vue.component('projects_page', {
 				<minimize_content html_insert="<iframe src='https://nWhitcome.github.io' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
 			</div>
 		</div>
-		<div class="info_card">© 2019 Nathan Whitcome</div>
+		<div class="info_card bottom_copyright">© 2019 Nathan Whitcome</div>
 	</div>
 	`
 });
@@ -401,7 +401,7 @@ Vue.component('music_page', {
 				</div>
 			</div>
 		</div>
-		<div class="info_card">© 2019 Nathan Whitcome</div>
+		<div class="info_card bottom_copyright">© 2019 Nathan Whitcome</div>
 	</div>
 	`
 });
