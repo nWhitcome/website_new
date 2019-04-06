@@ -210,7 +210,7 @@ Vue.component('resume_page', {
 				</div>
 			</div>
 		</div>
-		<div class="info_card bottom_copyright">© 2019 Nathan Whitcome</div>
+		<div class="info_card bottom_copyright"><p style="padding: 0">© 2019 Nathan Whitcome</p></div>
 	</div>
 	`
 });
@@ -263,6 +263,23 @@ Vue.component('projects_page', {
 		<div class="info_card">
 			<div class="inner_box">
 				<div class="button_bar">
+					<h1>Spotify-Lifx</h1>
+				</div>
+				<p>This is a project that I've had my mind on for a very long time. MY roommate CJ got his hands on some Lifx smart bulbs that are generally controlled by a cell phone. 
+				I looked online and it turns out that they have an open API! This opens the door to a lot of fun projects. We had the idea of having the bulbs change color based on what the 
+				user is currently listening to on Spotify. This hasn't been done from what I can tell, so I decided to try it myself. The code is on my Github but it is private.
+				<br>
+				<br>
+				There's a lot I want to do on for this project. I got the basic idea working using the Spotify and Lifx APIs, bit I want to do a lot more, including a mobile app. I've never 
+				done mobile development before, so I bought an online course to teach myself. Unfortunately, I don't have time to work on it because school is more important.</p>
+				<div class="multi_image_holder">
+						<img style="max-width: 600px;" src="src/project_pictures/lifx_spotify/lifx_animation.gif">
+				</div>
+			</div>
+		</div>
+		<div class="info_card">
+			<div class="inner_box">
+				<div class="button_bar">
 					<h1>Old Website</h1>
 					<custom_button text_val="Github" r_val=85 g_val=85 b_val=85 link_value='https://github.com/nWhitcome/nWhitcome.github.io'></custom_button>
 					<custom_button text_val="Webpage" r_val=168 g_val=56 b_val=59 link_value='nWhitcome.github.io'></custom_button>
@@ -272,11 +289,10 @@ Vue.component('projects_page', {
 				where I learned the proper way to do a lot of what I had already been doing. I decided to make the website you're currently on after getting 
 				a lot more experience with Vue and Node.js at work. I wanted to show what I learned rather than just talking about it. The new site is also my first use of Vuex, which I think 
 				will be important for me to know how to use in the future.</p>
-
 				<minimize_content html_insert="<iframe src='https://nWhitcome.github.io' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
 			</div>
 		</div>
-		<div class="info_card bottom_copyright">© 2019 Nathan Whitcome</div>
+		<div class="info_card bottom_copyright"><p style="padding: 0">© 2019 Nathan Whitcome</p></div>
 	</div>
 	`
 });
@@ -396,12 +412,16 @@ Vue.component('music_page', {
 				  We finished an EP called "It Came From the Basement!" since we wrote almost all of the music in our drummer's basement.
 				   Our music can be found on most streaming services by clicking on the buttons next the the name above.</p>
 				<div class="multi_image_holder">
-					<img class="fifty_width_image" src="src/tetrad_pictures/band_pic.jpg">
-					<img class="fifty_width_image" src="src/tetrad_pictures/band_pic_2.jpg">
+					<div class="image_holder_column">
+						<img src="src/tetrad_pictures/band_pic.jpg">
+					</div>
+					<div class="image_holder_column">
+						<img src="src/tetrad_pictures/band_pic_2.jpg">
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="info_card bottom_copyright">© 2019 Nathan Whitcome</div>
+		<div class="info_card bottom_copyright"><p style="padding: 0">© 2019 Nathan Whitcome</p></div>
 	</div>
 	`
 });

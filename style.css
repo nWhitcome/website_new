@@ -352,28 +352,21 @@ ul, ol{
 
 .multi_image_holder{
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-around;
-    align-items: flex-start;
+    padding: 0 4px;
+    justify-content: space-evenly;
 }
 
-@media screen and (min-width: 600px) {
-    .fifty_width_image {
-      width: calc(100% - 1rem);
-    }
-  }
-  
-  @media screen and (min-width: 1000px) {
-    .fifty_width_image {
-      width: calc(50% - 1rem);
-    }
-  }
+.image_holder_column{
+    flex: 48%;
+    min-width: 300px;
+    padding: 0 4px;
+}
 
-.fifty_width_image{
-    margin: .5rem;
-    height: auto;
+.image_holder_column img{
+    width: 100%;
+    margin-top: 8px;
+    vertical-align: middle;
 }
 
 .minimize_bar{
