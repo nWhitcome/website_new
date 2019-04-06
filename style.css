@@ -420,5 +420,6 @@ ul, ol{
 
 .bottom_copyright{
     white-space: nowrap;
-  overflow: hidden;
+    overflow: hidden;
+    font-size: 16px;
 }

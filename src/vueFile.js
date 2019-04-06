@@ -273,7 +273,7 @@ Vue.component('projects_page', {
 				There's a lot I want to do on for this project. I got the basic idea working using the Spotify and Lifx APIs, bit I want to do a lot more, including a mobile app. I've never 
 				done mobile development before, so I bought an online course to teach myself. Unfortunately, I don't have time to work on it because school is more important.</p>
 				<div class="multi_image_holder">
-						<img style="max-width: 600px;" src="src/project_pictures/lifx_spotify/lifx_animation.gif">
+					<img style="max-width: 600px; padding: 0 4px;" src="src/project_pictures/lifx_spotify/lifx_animation.gif">
 				</div>
 			</div>
 		</div>
@@ -292,7 +292,9 @@ Vue.component('projects_page', {
 				<minimize_content html_insert="<iframe src='https://nWhitcome.github.io' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
 			</div>
 		</div>
-		<div class="info_card bottom_copyright"><p style="padding: 0">© 2019 Nathan Whitcome</p></div>
+		<div class="info_card bottom_copyright">
+			<p style="padding: 0">© 2019 Nathan Whitcome</p>
+		</div>
 	</div>
 	`
 });
