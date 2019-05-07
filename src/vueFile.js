@@ -237,7 +237,7 @@ Vue.component('projects_page', {
 					<li><b>The Google Maps API isn't very good for what I'm doing here.</b> This causes a number of problems:
 					<ul>
 						<li>It always looks for the shortest path to a specific place, which meant that it was always returning 
-						a path that was a straight line. I had to do a lot of work to get around this and it still comes out very inefficient.</li>
+						a path that was a straight line. I had to do a lot of work to get around this and it is still very inefficient.</li>
 						<li><b>Creating a looping path is almost impossible.</b> The Google Maps API sends data to their servers and returns a path, so I all I can do is process the data 
 						they have given to me. It only takes a few relevant parameters:
 						<ul>
@@ -265,13 +265,13 @@ Vue.component('projects_page', {
 				<div class="button_bar">
 					<h1>Spotify-Lifx</h1>
 				</div>
-				<p>This is a project that I've had my mind on for a very long time. MY roommate CJ got his hands on some Lifx smart bulbs that are generally controlled by a cell phone. 
-				I looked online and it turns out that they have an open API! This opens the door to a lot of fun projects. We had the idea of having the bulbs change color based on what the 
+				<p>This is a project that I've had my mind on for a very long time. My roommate CJ had gotten his hands on some Lifx smart bulbs that are generally controlled by a cell phone and I thought it would be pretty cool to do some programming with them if possible.
+				I looked online and it turns out that they have an open API! This opens the door to a lot of fun projects, including having the bulbs change color based on what the 
 				user is currently listening to on Spotify. This hasn't been done from what I can tell, so I decided to try it myself. The code is on my Github but it is private.
 				<br>
 				<br>
 				There's a lot I want to do on for this project. I got the basic idea working using the Spotify and Lifx APIs, bit I want to do a lot more, including a mobile app. I've never 
-				done mobile development before, so I bought an online course to teach myself. Unfortunately, I don't have time to work on it because school is more important.</p>
+				done mobile development before, so I bought an online course to teach myself. Unfortunately, I don't have time to work on it because school is more important. I'm hoping to do development over the summer using Flutter.</p>
 				<div class="multi_image_holder">
 					<img style="max-width: 600px; padding: 0 4px;" src="src/project_pictures/lifx_spotify/lifx_gif_opt.gif">
 				</div>
@@ -286,7 +286,7 @@ Vue.component('projects_page', {
 				</div>
 				<p>This was the first website I ever built. I used time that I had while I wasn't working one summer to teach myself HTML and CSS. There are a lot of things I
 				did inefficiently but I thought it came out looking pretty good considering how little I knew at the time. I eventually took a class at school on the basics of HTML and CSS 
-				where I learned the proper way to do a lot of what I had already been doing. I decided to make the website you're currently on after getting 
+				where I learned the proper way to do a lot of what I had already done. I decided to make the website you're currently on after getting 
 				a lot more experience with Vue and Node.js at work. I wanted to show what I learned rather than just talking about it. The new site is also my first use of Vuex, which I think 
 				will be important for me to know how to use in the future.</p>
 				<minimize_content html_insert="<iframe src='https://nWhitcome.github.io' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
