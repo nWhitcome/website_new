@@ -39,6 +39,12 @@ Vue.component('top_bar', {
 			this.bar_hidden = value;
 		},
 		toggle_full_screen(){
+			if(this.$store.state.full_screen == false){
+				clearInterval(this.$parent.$children[0].current_timer);
+			}
+			else{
+				setInterval(this.$parent.$children[0].next, 10000);
+			}
 			store.commit('toggle_full_screen');
 		}
 	},
@@ -722,8 +728,10 @@ Vue.component('background_image', {
 			this.current_timer = setInterval(this.next, 10000);
 		  },
 		  get_z_val(index_val){
-			  if(index_val == 1)
+			if(index_val == 1)
 				return(1);
+			else
+				return(-2);
 		  }
 	},
 	template: `
@@ -742,7 +750,11 @@ Vue.component('background_image', {
 		    <div id="arrow_button_right" class="cutout_arrow" key="two" v-on:click="next()">
 			    <i style="font-size:75px;padding-left: 5px;">chevron_right</i>					
 		    </div>
-		</transition-group>	
+		</transition-group>
+		<div style="background-color: white; z-index: -1; position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; display: flex; justify-content: center; align-items: center;">
+			<div style="color: #888; font-size: 24px;">Loading...
+			</div>
+		</div>
 	</div>
 	`
 })
