@@ -3,14 +3,17 @@ var socket = io();
 const store = new Vuex.Store({
 	state: {
 		bottom_visible: 0,
-		current_picture_index: 0,
 		winWidth: null,
 		winHeight: null,
+		full_screen: false,
 	},
 	mutations: {
 		adjust_width_height(state, width, height){
 			state.winWidth = width;
 			state.winHeight = height;
+		},
+		toggle_full_screen(state){
+			state.full_screen = !state.full_screen;
 		}
 	},
 })
@@ -20,6 +23,7 @@ Vue.component('top_bar', {
 		return {
 			selected: 'photos_text',
 			menu_visible: false,
+			bar_hidden: true,
 		}
 	},
 	methods: {
@@ -31,13 +35,29 @@ Vue.component('top_bar', {
 		hamburgerClicked() {
 			this.menu_visible = !this.menu_visible;
 		},
+		change_bar(value){
+			this.bar_hidden = value;
+		},
+		toggle_full_screen(){
+			store.commit('toggle_full_screen');
+		}
+	},
+	computed: {
+		full_icon: function(){
+			if(this.$store.state.full_screen){
+				return "fullscreen_exit"
+			}
+			else{
+				return "fullscreen"
+			}
+		}
 	},
 	template: `
 	<div style="height: 100%;">
-		<div id="top_bar_cutout">
-			<div id="my_name" class='no_select' v-if="this.$store.state.winWidth > 900">Nathan Whitcome</div>
+		<div id="top_bar_cutout" :class="{ 'bar_hide': !bar_hidden , 'bar_hide': $store.state.full_screen}">
+			<div id="my_name" class='no_select' v-if="$store.state.winWidth > 900">Nathan Whitcome</div>
 			<div id="my_name" class='no_select' v-else>NW</div>
-			<div style="display:flex; align-items: center;" v-if="this.$store.state.winWidth > 600">
+			<div style="display:flex; align-items: center;" v-if="$store.state.winWidth > 600">
 				<div v-bind:class="{projects_text_selected: selected == 'projects_text', projects_text: selected != 'projects_text'}" class="projects_text">Projects</div>
 				<div v-bind:class="{projects_text_selected: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text">Photos</div>
 				<div v-bind:class="{projects_text_selected: selected == 'music_text', projects_text: selected != 'music_text'}" class="projects_text">Music</div>
@@ -45,10 +65,10 @@ Vue.component('top_bar', {
 			</div>
 			<div v-else class='no_select'><i style='font-size:50px;'>menu</i></div>
 		</div>
-		<div id="top_bar_text">
-			<div id="my_name" class='no_select' v-if="this.$store.state.winWidth > 900">Nathan Whitcome</div>
+		<div id="top_bar_text" :class="{ 'bar_hide': !bar_hidden, 'bar_hide': $store.state.full_screen}">
+			<div id="my_name" class='no_select' v-if="$store.state.winWidth > 900">Nathan Whitcome</div>
 			<div id="my_name" class='no_select' v-else>NW</div>
-			<div style="display:flex; align-items: center;" v-if="this.$store.state.winWidth > 600">
+			<div style="display:flex; align-items: center;" v-if="$store.state.winWidth > 600">
 				<div class="projects_text" v-bind:class="{projects_text_selected_clear: selected == 'projects_text', projects_text: selected != 'projects_text'}" @click="headingClicked(false, 'projects_text')">Projects</div>
 				<div v-bind:class="{projects_text_selected_clear: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text" @click="headingClicked(true, 'photos_text')">Photos</div>
 				<div v-bind:class="{projects_text_selected_clear: selected == 'music_text', projects_text: selected != 'music_text'}" class="projects_text" @click="headingClicked(false, 'music_text')">Music</div>
@@ -56,16 +76,35 @@ Vue.component('top_bar', {
 			</div>
 			<div v-else @click='hamburgerClicked()' class='no_select'><i style='font-size:50px; cursor: pointer;'>menu</i></div>
 		</div>
-		<transition name="slide_left" v-if='menu_visible && this.$store.state.winWidth < 600'>
+		<transition name="slide_left" v-if='menu_visible && $store.state.winWidth < 600'>
 			<menu_overlay key='menu' :selected='selected' @headingClicked='headingClicked'></menu_overlay>
 		</transition>
 		<transition-group name="fade" tag="div" v-else-if="selected != 'photos_text'">
-			<div  id="middle_content" key='middle'>
-				<music_page v-if="selected == 'music_text'"></music_page>
-				<resume_page v-else-if="selected == 'resume_text'"></resume_page>
-				<projects_page v-else-if="selected == 'projects_text'"></projects_page>
+			<div :class="{ 'middle_reach': !bar_hidden, 'middle_top': bar_hidden}" id="middle_content" key='middle' >
+				<music_page v-show="selected == 'music_text'" :bar_hidden="bar_hidden" @change_bar = "change_bar"></music_page>
+				<resume_page v-show="selected == 'resume_text'" :bar_hidden="bar_hidden" @change_bar = "change_bar"></resume_page>
+				<projects_page v-show="selected == 'projects_text'" :bar_hidden="bar_hidden" @change_bar = "change_bar"></projects_page>
 			</div>
 		</transition-group>
+		<div id="fullscreen_icon" v-if="selected == 'photos_text'" @click="toggle_full_screen" :class="{ 'fullscreen_hide': $store.state.full_screen, 'fullscreen_here': !$store.state.full_screen }" class="no_select cutout_arrow">
+			<i>{{full_icon}}</i>
+		</div>
+		<footer v-show="selected == 'photos_text'" :class="{ 'footer_hide': $store.state.full_screen }" id="bottom_bar_cutout">
+			<div style="display: flex; flex-direction: column; padding-left: 20px; position: fixed; bottom: 0px; left: 0px; height: 100px; justify-content: center;">
+				<div style="font-size: 20px;">{{this.$parent.$children[0].picture_links[1].location}}
+				</div>
+				<div style="font-size: 14px;">{{this.$parent.$children[0].picture_links[1].date}}
+				</div>
+			</div>
+		</footer>
+		<div v-show="selected == 'photos_text'" :class="{ 'footer_hide': $store.state.full_screen }" style="height: 100px; position: fixed; bottom: 0px; left: 0px; width: 500px; z-index: 5;" class="footer_text">
+			<div style="display: flex; flex-direction: column; padding-left: 20px; position: fixed; bottom: 0px; left: 0px; height: 100px; justify-content: center;">
+				<div style="font-size: 20px;">{{this.$parent.$children[0].picture_links[1].location}}
+				</div>
+				<div style="font-size: 14px;">{{this.$parent.$children[0].picture_links[1].date}}
+				</div>
+			</div>
+		</div>
 	</div>
 	`
 })
@@ -117,11 +156,33 @@ Vue.component('menu_overlay', {
 })
 
 Vue.component('resume_page', {
+	props: ['bar_hidden'],
+	data: function(){
+		return {
+			lastScroll: 0,
+		}
+	},
+	methods:{
+		onScroll(){
+			const current_scroll = this.$refs.scroll_content.scrollTop;
+			if(Math.abs(current_scroll - this.lastScroll) < 120){
+				return
+			}
+			this.$emit('change_bar', current_scroll < this.lastScroll);
+			this.lastScroll = current_scroll;
+			if(this.$refs.scroll_content.scrollTop == 0){
+				this.$emit('change_bar', true);
+			}
+		}
+	},
+	mounted: function() {
+		this.$refs.scroll_content.addEventListener('scroll', this.onScroll)
+	},
 	template: `
-	<div id="middle_inner_content">
+	<div id="middle_inner_content" ref="scroll_content">
 		<div class="info_card">
 			<div class="inner_box">
-				<h1>Nathan Whitcome | GPA: 3.13</h1>
+				<h1>Nathan Whitcome | GPA: 3.15</h1>
 				<div class="small_image_holder">
 					<img src="src/resume_pictures/CSS3_logo_and_wordmark.svg.png" class="resume_image">
 					<img src="src/resume_pictures/HTML.png" class="resume_image">
@@ -138,16 +199,15 @@ Vue.component('resume_page', {
 				</div>
 				<div id="resume_content">
 						<h2>Objective</h2>
-						<p class="par_padding">Find a Spring or Summer 2019 internship or
-						co-op in the computer engineering field</p>
+						<p class="par_padding">Find full time work after graduating in May 2020</p>
 						<br>
 
 						<h2>Education</h2>
 						<p class="par_padding"><b>Iowa State University, Ames IA</b><br>
 						(Expected Graduation May 2020)
 						Bachelor of Science, Computer Engineering<br>
-						GPA: 3.13<br>
-						Major GPA: 3.81</p>
+						GPA: 3.15<br>
+						Major GPA: 3.46</p>
 						<br>
 
 						<h2>Leadership/Volunteer Experience</h2>
@@ -167,10 +227,17 @@ Vue.component('resume_page', {
 						Spring 2018<br>
 						Fall 2019<br><br>
 						<b>Iowa State Classes</b><br>
-						CPR E 281 - Digital Logic and Circuit Design<br>
-						CPR E 288 - Embedded Systems Programming<br>
-						CS 228 - Java Data Systems and Structures<br>
-						CS 311 - Algorithm Analysis
+						CPR E 281 – Digital Logic and Circuit Design<br>
+						CPR E 288 – Embedded Systems Programming<br>
+						CS 106 – Web Design with HTML/CSS<br>
+						CS 227 – Intro to Java Programming<br>
+						CS 228 – Java Data Systems and Structures<br>
+						CS 311 – Algorithm Analysis<br>
+						CPR E 308 – Operating Systems<br>
+						CS 363 – Introduction to Database Systems<br>
+						CPR E 430 – Network Protocols and Security<br>
+						CPR E 431 – Information Systems Security<br>
+						CPR E 489 – Data Communications
 						</p><br>
 					
 					
@@ -182,9 +249,10 @@ Vue.component('resume_page', {
 						<h2>Work Experience</h2>
 						<p class="par_padding">
 						<b>Power Electronics International</b><br>
-						Web Design Internship (Summer 2018)
+						Web Design Internship (Summer 2018 - 2019)
 						<ul>
 							<li>Programming: Node Js, Python, HTML, CSS, Vue Js, and JavaScript</li>
+							<li>Developed software for the PE Ultra Hub</li>
 						</ul>
 						IT Work (Summer 2017)<br><br>
 						<b>ISU Dining</b><br>
@@ -216,8 +284,30 @@ Vue.component('resume_page', {
 });
 
 Vue.component('projects_page', {
+	props: ['bar_hidden'],
+	data: function(){
+		return {
+			lastScroll: 0,
+		}
+	},
+	methods:{
+		onScroll(){
+			const current_scroll = this.$refs.scroll_content.scrollTop;
+			if(Math.abs(current_scroll - this.lastScroll) < 120){
+				return
+			}
+			this.$emit('change_bar', current_scroll < this.lastScroll);
+			this.lastScroll = current_scroll;
+			if(this.$refs.scroll_content.scrollTop == 0){
+				this.$emit('change_bar', true);
+			}
+		}
+	},
+	mounted: function() {
+		this.$refs.scroll_content.addEventListener('scroll', this.onScroll)
+	},
 	template: `
-	<div id="middle_inner_content">
+	<div id="middle_inner_content" ref="scroll_content">
 		<div class="info_card">
 			<div class="inner_box">
 				<div class="button_bar">
@@ -271,7 +361,7 @@ Vue.component('projects_page', {
 				<br>
 				<br>
 				There's a lot I want to do on for this project. I got the basic idea working using the Spotify and Lifx APIs, bit I want to do a lot more, including a mobile app. I've never 
-				done mobile development before, so I bought an online course to teach myself. Unfortunately, I don't have time to work on it because school is more important. I'm hoping to do development over the summer using Flutter.</p>
+				done mobile development before, so I bought an online course to teach myself. Unfortunately, I don't have time to work on it because school is more important. I'm hoping to start development again sometime soon using Flutter.</p>
 				<div class="multi_image_holder">
 					<img style="max-width: 600px; padding: 0 4px;" src="src/project_pictures/lifx_spotify/lifx_gif_opt.gif">
 				</div>
@@ -340,7 +430,9 @@ Vue.component('minimize_content', {
 			content: null,
 			mainStyle:{
 				height: 'auto',
-				overflow:'hidden'
+				overflow:'hidden',
+				maxHeight: '600px',
+				transition: 'max-height .25s ease-in',
 			}
 		}
 	},
@@ -351,25 +443,47 @@ Vue.component('minimize_content', {
 		switch_hidden(){
 			this.closed_state = !this.closed_state;
 			if(this.closed_state == true){
-				this.mainStyle.height = '35px';
+				this.mainStyle.maxHeight = '0px';
 			}
 			else{
-				this.mainStyle.height = 'auto';
+				this.mainStyle.maxHeight = '600px';
 			}
 		}
 	},
 	template:`
-		<div v-bind:style="mainStyle" @click="switch_hidden()">
+		<div @click="switch_hidden()" style="display: flex; flex-direction: column">
 			<minimize_bar></minimize_bar>
-			<span v-html="content"></span>
+			<span v-bind:style="mainStyle" v-html="content"></span>
 		</div>
 	`
 })
 
 
 Vue.component('music_page', {
+	props: ['bar_hidden'],
+	data: function(){
+		return {
+			lastScroll: 0,
+		}
+	},
+	methods:{
+		onScroll(){
+			const current_scroll = this.$refs.scroll_content.scrollTop;
+			if(Math.abs(current_scroll - this.lastScroll) < 120){
+				return
+			}
+			this.$emit('change_bar', current_scroll < this.lastScroll);
+			this.lastScroll = current_scroll;
+			if(this.$refs.scroll_content.scrollTop == 0){
+				this.$emit('change_bar', true);
+			}
+		}
+	},
+	mounted: function() {
+		this.$refs.scroll_content.addEventListener('scroll', this.onScroll)
+	},
 	template: `
-	<div id="middle_inner_content">
+	<div id="middle_inner_content" ref="scroll_content">
 		<div class="info_card">
 			<div class="inner_box">
 				<h1>Kaleidoquiz</h1>
@@ -387,7 +501,7 @@ Vue.component('music_page', {
 				<br>
 				<br>
 				<h2>2018</h2>
-				<p>I worked with my teammate Ausin to create a music video where the prompt was to create a song that didn't use any instruments. I recorded all of the sound in the
+				<p>I worked with my teammate Austin to create a music video where the prompt was to create a song that didn't use any instruments. I recorded all of the sound in the
 				video from my dorm room and put them together in Ableton Live. Austin and I then went out and recorded a video for it, creating a robot helmet for me to wear.
 				<br>
 				<br>
@@ -474,56 +588,159 @@ Vue.component('background_image', {
 	props: ['buttons_visible'],
 	data: function () {
 		return {
-			picture_links: ['src/background_pictures/my_back_mountain.jpg',
-				'src/background_pictures/Badlands.jpg',
-				'src/background_pictures/Colorado_Top.jpg',
-				'src/background_pictures/Glacier1.jpg',
-				'src/background_pictures/Glacier2.jpg',
-				'src/background_pictures/Badlands2.jpg',
-				'src/background_pictures/Swing_Dance.jpg',
-				'src/background_pictures/Tetons1.jpg',
-				'src/background_pictures/Tetons2.jpg',
-				'src/background_pictures/Tetons3.jpg',
-				'src/background_pictures/River.jpg',
-				'src/background_pictures/Campsite.jpg',
-				'src/background_pictures/Tetons_album.jpg'],
-			current_picture_index: 0,
-			current_timer: setInterval(this.onClickForward, 10000),
+			picture_links: [
+				{ 
+					link: 'src/background_pictures/my_back_mountain.jpg',
+					id: 1,
+					location: "Glacier National Park, Montana",
+					date: "Summer 2018"
+				},
+				{
+					link: 'src/background_pictures/Badlands.jpg',
+					id: 2,
+					location: "Badlands National Park, South Dakota",
+					date: "Summer 2018"
+				},
+				{
+					link: 'src/background_pictures/Colorado_Top.jpg',
+					id: 3,
+					location: "Quandry Peak, Colorado",
+					date: "Summer 2017"
+				},
+				{
+					link: 'src/background_pictures/Glacier1.jpg',
+					id: 4,
+					location: "Glacier National Park, Montana",
+					date: "Summer 2018"
+				},
+				{
+					link: 'src/background_pictures/Glacier2.jpg',
+					id: 5,
+					location: "Glacier National Park, Montana",
+					date: "Summer 2018"
+				},
+				{
+					link: 'src/background_pictures/Badlands2.jpg',
+					id: 6,
+					location: "Badlands National Park, South Dakota",
+					date: "Summer 2018"
+				},
+				{
+					link: 'src/background_pictures/Swing_Dance.jpg',
+					id: 7,
+					location: "Ames, Iowa",
+					date: "Fall 2017"
+				},
+				{
+					link: 'src/background_pictures/Tetons1.jpg',
+					id: 8,
+					location: "Grand Teton National Park, Wyoming",
+					date: "Summer 2018"
+				},
+				{
+					link: 'src/background_pictures/Tetons2.jpg',
+					id: 9,
+					location: "Grand Teton National Park, Wyoming",
+					date: "Summer 2018"
+				},
+				{
+					link: 'src/background_pictures/Tetons3.jpg',
+					id: 10,
+					location: "Grand Teton National Park, Wyoming",
+					date: "Summer 2018"
+				},
+				{
+					link: 'src/background_pictures/River.jpg',
+					id: 11,
+					location: "Grand Teton National Park, Wyoming",
+					date: "Summer 2018"
+				},
+				{
+					link: 'src/background_pictures/Campsite.jpg',
+					id: 12,
+					location: "Rocky Mountain National Park, Colorado",
+					date: "Summer 2017"
+				},
+				{
+					link: 'src/background_pictures/Tetons_album.jpg',
+					id: 13,
+					location: "Grand Teton National Park, Wyoming",
+					date: "Summer 2018"
+				},
+				{
+					link: 'src/background_pictures/Norway1.jpg',
+					id: 14,
+					location: "Jostedalsbreen National Park, Norway",
+					date: "Summer 2019"
+				},
+				{
+					link: 'src/background_pictures/Norway2.jpg',
+					id: 15,
+					location: "Ålfoten, Norway",
+					date: "Summer 2019"
+				},
+				{
+					link: 'src/background_pictures/Norway3.jpg',
+					id: 16,
+					location: "Ålfoten, Norway",
+					date: "Summer 2019"
+				},
+				{
+					link: 'src/background_pictures/Norway4.jpg',
+					id: 17,
+					location: "Jostedalsbreen National Park, Norway",
+					date: "Summer 2019"
+				},
+				{
+					link: 'src/background_pictures/Norway5.jpg',
+					id: 18,
+					location: "Jostedalsbreen National Park, Norway",
+					date: "Summer 2019"
+				},
+				{
+					link: 'src/background_pictures/Norway6.jpg',
+					id: 19,
+					location: "Norway",
+					date: "Summer 2019"
+				}
+			],
+			current_timer: setInterval(this.next, 10000),
 			slide_direction: "slide_left"
 		}
 	},
 	methods: {
-		onClickBack(event) {
-			this.slide_direction = "slide_right";
-			if (this.current_picture_index == 0) {
-				this.current_picture_index = this.picture_links.length - 1;
-			}
-			else
-				this.current_picture_index = this.current_picture_index - 1;
+		next (event) {
+			const first = this.picture_links.shift()
+			this.picture_links = this.picture_links.concat(first)
 			clearInterval(this.current_timer);
-			this.current_timer = setInterval(this.onClickForward, 10000);
-		},
-		onClickForward(event) {
-			this.slide_direction = "slide_left";
-			if (this.current_picture_index == this.picture_links.length - 1)
-				this.current_picture_index = 0;
-			else
-				this.current_picture_index = this.current_picture_index + 1;
+			this.current_timer = setInterval(this.next, 10000);
+		  },
+		  previous (event) {
+			const last = this.picture_links.pop()
+			this.picture_links = [last].concat(this.picture_links)
 			clearInterval(this.current_timer);
-			this.current_timer = setInterval(this.onClickForward, 10000);
-		},
+			this.current_timer = setInterval(this.next, 10000);
+		  },
+		  get_z_val(index_val){
+			  if(index_val == 1)
+				return(1);
+		  }
 	},
 	template: `
-	<div style="height: 100%;">
-		<transition-group :name="slide_direction" tag="div" class="outer_box" v-for="(item, index) in picture_links" :key="index" style=" animation-duration: 1s; animation-name: fadebackground;">
-			<div class="outer_box" :key="item" v-show="index == current_picture_index" v-bind:style="{ 'background-image': 'url(' + picture_links[index] + ')' }"></div>
-		</transition-group>
+	<div style="height: 100%; overflow:hidden;">
+		<div style="display:flex; flex-direction: row; width: ">
+		</div>
+		<transition-group class='carousel' tag="div">
+     		 <div v-for="(item, index) in picture_links" class="outer_box slide" :key="item.id" 
+				v-bind:style="{ 'background-image': 'url(' + item.link + ')', 'z-index' : get_z_val(index) }" v-show="item.id==picture_links[0].id || item.id==picture_links[1].id || item.id==picture_links[2].id"><img :src="item.link"
+      		</div>
+    	</transition-group>
 		<transition-group name="fade" tag="div" style="display:flex; height: 100%; align-items: center; justify-content: space-between;" v-show="buttons_visible">
-		    <div id="arrow_button_left" class="cutout_arrow" key="one" v-on:click="this.onClickBack">
-			    <i style="font-size:65px;">chevron_left</i>			
+		    <div id="arrow_button_left" class="cutout_arrow" key="one" v-on:click="previous()">
+			    <i style="font-size:75px;">chevron_left</i>			
 		    </div>
-		    <div id="arrow_button_right" class="cutout_arrow" key="two" v-on:click="this.onClickForward">
-			    <i style="font-size:65px;padding-left: 5px;">chevron_right</i>					
+		    <div id="arrow_button_right" class="cutout_arrow" key="two" v-on:click="next()">
+			    <i style="font-size:75px;padding-left: 5px;">chevron_right</i>					
 		    </div>
 		</transition-group>	
 	</div>
