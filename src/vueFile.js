@@ -43,7 +43,7 @@ Vue.component('top_bar', {
 				clearInterval(this.$parent.$children[0].current_timer);
 			}
 			else{
-				setInterval(this.$parent.$children[0].next, 10000);
+				this.$parent.$children[0].current_timer = setInterval(this.$parent.$children[0].next, 10000);
 			}
 			store.commit('toggle_full_screen');
 		}
@@ -710,22 +710,29 @@ Vue.component('background_image', {
 					date: "Summer 2019"
 				}
 			],
-			current_timer: setInterval(this.next, 10000),
+			current_timer: null,
 			slide_direction: "slide_left"
 		}
+	},
+	mounted: function(){
+		this.current_timer = setInterval(this.next, 10000);
 	},
 	methods: {
 		next (event) {
 			const first = this.picture_links.shift()
 			this.picture_links = this.picture_links.concat(first)
-			clearInterval(this.current_timer);
-			this.current_timer = setInterval(this.next, 10000);
+			if(this.$store.state.full_screen == false){
+				clearInterval(this.current_timer);
+				this.current_timer = setInterval(this.next, 10000);
+			}
 		  },
 		  previous (event) {
 			const last = this.picture_links.pop()
 			this.picture_links = [last].concat(this.picture_links)
-			clearInterval(this.current_timer);
-			this.current_timer = setInterval(this.next, 10000);
+			if(this.$store.state.full_screen == false){
+				clearInterval(this.current_timer);
+				this.current_timer = setInterval(this.next, 10000);
+			}
 		  },
 		  get_z_val(index_val){
 			if(index_val == 1)
