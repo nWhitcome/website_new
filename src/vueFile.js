@@ -24,6 +24,14 @@ Vue.component('top_bar', {
 			selected: 'photos_text',
 			menu_visible: false,
 			bar_hidden: true,
+			hamburger_hovered: false,
+			mouse_down_hamb: false,
+			top_hover: {
+				pr: false,
+				ph: false,
+				mu: false,
+				re: false,
+			}
 		}
 	},
 	methods: {
@@ -46,7 +54,7 @@ Vue.component('top_bar', {
 				this.$parent.$children[0].current_timer = setInterval(this.$parent.$children[0].next, 10000);
 			}
 			store.commit('toggle_full_screen');
-		}
+		},
 	},
 	computed: {
 		full_icon: function(){
@@ -61,26 +69,33 @@ Vue.component('top_bar', {
 	template: `
 	<div style="height: 100%;">
 		<div id="top_bar_cutout" :class="{ 'bar_hide': !bar_hidden , 'bar_hide': $store.state.full_screen}">
-			<div id="my_name" class='no_select' v-if="$store.state.winWidth > 900">Nathan Whitcome</div>
+		<div id="my_name" class='no_select' v-if="$store.state.winWidth > 900">Nathan Whitcome</div>
 			<div id="my_name" class='no_select' v-else>NW</div>
 			<div style="display:flex; align-items: center;" v-if="$store.state.winWidth > 600">
-				<div v-bind:class="{projects_text_selected: selected == 'projects_text', projects_text: selected != 'projects_text'}" class="projects_text">Projects</div>
-				<div v-bind:class="{projects_text_selected: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text">Photos</div>
-				<div v-bind:class="{projects_text_selected: selected == 'music_text', projects_text: selected != 'music_text'}" class="projects_text">Music</div>
-				<div v-bind:class="{projects_text_selected: selected == 'resume_text', projects_text: selected != 'resume_text'}" class="projects_text">Résumé</div>
+				<div v-bind:class="{projects_text_selected: (selected == 'projects_text' || top_hover.pr === true)}" class="projects_text">Projects</div>
+				<div v-bind:class="{projects_text_selected_clear: (selected == 'photos_text' || top_hover.ph == true)}" class="projects_text">Photos</div>
+				<div v-bind:class="{projects_text_selected_clear: (selected == 'music_text' || top_hover.mu == true)}" class="projects_text">Music</div>
+				<div v-bind:class="{projects_text_selected_clear: (selected == 'resume_text' || top_hover.re == true)}" class="projects_text">Résumé</div>
 			</div>
-			<div v-else class='no_select'><i style='font-size:50px;'>menu</i></div>
+			<div v-else class='no_select hamburger_icon' v-bind:style="{'background-color:white':!mouse_down_hamb}" 
+			v-bind:class="{'black_border':(hamburger_hovered && !mouse_down_hamb), 'black_clicked':mouse_down_hamb}">
+				<i style='font-size:50px;'>menu</i>
+			</div>
 		</div>
 		<div id="top_bar_text" :class="{ 'bar_hide': !bar_hidden, 'bar_hide': $store.state.full_screen}">
-			<div id="my_name" class='no_select' v-if="$store.state.winWidth > 900">Nathan Whitcome</div>
+		<div id="my_name" class='no_select' v-if="$store.state.winWidth > 900">Nathan Whitcome</div>
 			<div id="my_name" class='no_select' v-else>NW</div>
 			<div style="display:flex; align-items: center;" v-if="$store.state.winWidth > 600">
-				<div class="projects_text" v-bind:class="{projects_text_selected_clear: selected == 'projects_text', projects_text: selected != 'projects_text'}" @click="headingClicked(false, 'projects_text')">Projects</div>
-				<div v-bind:class="{projects_text_selected_clear: selected == 'photos_text', projects_text: selected != 'photos_text'}" class="projects_text" @click="headingClicked(true, 'photos_text')">Photos</div>
-				<div v-bind:class="{projects_text_selected_clear: selected == 'music_text', projects_text: selected != 'music_text'}" class="projects_text" @click="headingClicked(false, 'music_text')">Music</div>
-				<div v-bind:class="{projects_text_selected_clear: selected == 'resume_text', projects_text: selected != 'resume_text'}" class="projects_text" @click="headingClicked(false, 'resume_text')">Résumé</div>
+				<div @mouseenter="top_hover.pr = true;" @mouseleave="top_hover.pr = false" class="projects_text" v-bind:class="{projects_text_selected_clear: (selected == 'projects_text' || top_hover.pr == true)}" @click="headingClicked(false, 'projects_text')">Projects</div>
+				<div @mouseenter="top_hover.ph = true;" @mouseleave="top_hover.ph = false" v-bind:class="{projects_text_selected_clear: (selected == 'photos_text' || top_hover.ph == true)}" class="projects_text" @click="headingClicked(true, 'photos_text')">Photos</div>
+				<div @mouseenter="top_hover.mu = true;" @mouseleave="top_hover.mu = false" v-bind:class="{projects_text_selected_clear: (selected == 'music_text' || top_hover.mu == true)}" class="projects_text" @click="headingClicked(false, 'music_text')">Music</div>
+				<div @mouseenter="top_hover.re = true;" @mouseleave="top_hover.re = false" v-bind:class="{projects_text_selected_clear: (selected == 'resume_text' || top_hover.re == true)}" class="projects_text" @click="headingClicked(false, 'resume_text')">Résumé</div>
 			</div>
-			<div v-else @click='hamburgerClicked()' class='no_select'><i style='font-size:50px; cursor: pointer;'>menu</i></div>
+			<div v-else v-bind:class="{'black_border_fill':(hamburger_hovered && !mouse_down_hamb), 'black_clicked_transp':mouse_down_hamb}" @mousedown="mouse_down_hamb = true" 
+			@mouseup="mouse_down_hamb = false; console.log('Here')" @mouseenter="hamburger_hovered = true" @mouseleave="hamburger_hovered = false" @click='hamburgerClicked()' 
+			class='no_select hamburger_icon'>
+				<i style='font-size:50px; cursor: pointer;'>menu</i>
+			</div>
 		</div>
 		<transition name="slide_left" v-if='menu_visible && $store.state.winWidth < 600'>
 			<menu_overlay key='menu' :selected='selected' @headingClicked='headingClicked'></menu_overlay>
@@ -710,8 +725,9 @@ Vue.component('background_image', {
 					date: "Summer 2019"
 				}
 			],
+			allow_click: true,
 			current_timer: null,
-			slide_direction: "slide_left"
+			slide_direction: "l"
 		}
 	},
 	mounted: function(){
@@ -719,26 +735,42 @@ Vue.component('background_image', {
 	},
 	methods: {
 		next (event) {
-			const first = this.picture_links.shift()
-			this.picture_links = this.picture_links.concat(first)
-			if(this.$store.state.full_screen == false){
-				clearInterval(this.current_timer);
-				this.current_timer = setInterval(this.next, 10000);
+			if(this.allow_click == true){
+				this.allow_click = false;
+				this.slide_direction = "r";
+				const first = this.picture_links.shift()
+				this.picture_links = this.picture_links.concat(first)
+				if(this.$store.state.full_screen == false){
+					clearInterval(this.current_timer);
+					this.current_timer = setInterval(this.next, 10000);
+				}
+				me = this;
+				setTimeout(function(){me.allow_click = true;}, 750)
 			}
 		  },
 		  previous (event) {
-			const last = this.picture_links.pop()
-			this.picture_links = [last].concat(this.picture_links)
-			if(this.$store.state.full_screen == false){
-				clearInterval(this.current_timer);
-				this.current_timer = setInterval(this.next, 10000);
+			if(this.allow_click == true){
+				this.allow_click = false;
+				this.slide_direction = "l";
+				const last = this.picture_links.pop()
+				this.picture_links = [last].concat(this.picture_links)
+				if(this.$store.state.full_screen == false){
+					clearInterval(this.current_timer);
+					this.current_timer = setInterval(this.next, 10000);
+				}
+				me = this;
+				setTimeout(function(){me.allow_click = true;}, 750)
 			}
 		  },
 		  get_z_val(index_val){
 			if(index_val == 1)
 				return(1);
+			else if(index_val == 2 && this.slide_direction === "l" || index_val == 0 && this.slide_direction === "r")
+				return(-1);
+			else if(index_val == 0 && this.slide_direction === "l" || index_val == 2 && this.slide_direction === "r")
+				return (-2)
 			else
-				return(-2);
+				return(-4)
 		  }
 	},
 	template: `
@@ -746,8 +778,10 @@ Vue.component('background_image', {
 		<div style="display:flex; flex-direction: row; width: ">
 		</div>
 		<transition-group class='carousel' tag="div">
-     		 <div v-for="(item, index) in picture_links" class="outer_box slide" :key="item.id" 
-				v-bind:style="{ 'background-image': 'url(' + item.link + ')', 'z-index' : get_z_val(index) }" v-show="item.id==picture_links[0].id || item.id==picture_links[1].id || item.id==picture_links[2].id"><img :src="item.link"
+     		<div v-for="(item, index) in picture_links" class="outer_box" :key="item.id" 
+				v-bind:style="{ 'background-image': 'url(' + item.link + ')', 'z-index' : get_z_val(index)}" 
+				v-show="item.id==picture_links[0].id || item.id==picture_links[1].id || item.id==picture_links[2].id"
+				v-bind:class="{'translate_left':item.id==picture_links[0].id, 'translate_right':item.id==picture_links[2].id, 'slide':item.id==picture_links[1].id }">
       		</div>
     	</transition-group>
 		<transition-group name="fade" tag="div" style="display:flex; height: 100%; align-items: center; justify-content: space-between;" v-show="buttons_visible">
@@ -758,7 +792,7 @@ Vue.component('background_image', {
 			    <i style="font-size:75px;padding-left: 5px;">chevron_right</i>					
 		    </div>
 		</transition-group>
-		<div style="background-color: white; z-index: -1; position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; display: flex; justify-content: center; align-items: center;">
+		<div style="background-color: white; z-index: -3; position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; display: flex; justify-content: center; align-items: center;">
 			<div style="color: #888; font-size: 24px;">Loading...
 			</div>
 		</div>
