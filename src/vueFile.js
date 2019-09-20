@@ -393,7 +393,7 @@ Vue.component('projects_page', {
 				<div class="button_bar">
 					<h1>Old Website</h1>
 					<custom_button text_val="Github" r_val=85 g_val=85 b_val=85 link_value='https://github.com/nWhitcome/nWhitcome.github.io'></custom_button>
-					<custom_button text_val="Webpage" r_val=168 g_val=56 b_val=59 link_value='nWhitcome.github.io'></custom_button>
+					<custom_button text_val="Webpage" r_val=168 g_val=56 b_val=59 link_value='https://nWhitcome.github.io'></custom_button>
 				</div>
 				<p>This was the first website I ever built. I used time that I had while I wasn't working one summer to teach myself HTML and CSS. There are a lot of things I
 				did inefficiently but I thought it came out looking pretty good considering how little I knew at the time. I eventually took a class at school on the basics of HTML and CSS 
