@@ -332,6 +332,16 @@ Vue.component('projects_page', {
 		<div class="info_card">
 			<div class="inner_box">
 				<div class="button_bar">
+					<h1>394 Ethics Essay</h1>
+				</div>
+				<p>I had to write an ethics essay for my Cpr E 394 class, and it made me think about where I draw the line with my personal etics. I've become more involved in politics recently, and having this assignment made me think more about my impact on the world than I have before.
+				</p>
+				<minimize_content html_insert="<iframe src='./src/Ethics_Essay.pdf' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
+			</div>
+		</div>
+		<div class="info_card">
+			<div class="inner_box">
+				<div class="button_bar">
 					<h1>Pathfinder</h1>
 					<custom_button text_val="Github" r_val=85 g_val=85 b_val=85 link_value='https://github.com/nWhitcome/hackisu2018'></custom_button>
 					<custom_button text_val="Webpage" r_val=168 g_val=56 b_val=59 link_value='https://hackisu2018dev.herokuapp.com/'></custom_button>
