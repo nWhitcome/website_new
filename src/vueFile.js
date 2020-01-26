@@ -647,12 +647,6 @@ Vue.component('background_image', {
 					date: "Summer 2018"
 				},
 				{
-					link: 'src/background_pictures/Swing_Dance.jpg',
-					id: 7,
-					location: "Ames, Iowa",
-					date: "Fall 2017"
-				},
-				{
 					link: 'src/background_pictures/Tetons1.jpg',
 					id: 8,
 					location: "Grand Teton National Park, Wyoming",
@@ -697,12 +691,6 @@ Vue.component('background_image', {
 				{
 					link: 'src/background_pictures/Norway2.jpg',
 					id: 15,
-					location: "Ålfoten, Norway",
-					date: "Summer 2019"
-				},
-				{
-					link: 'src/background_pictures/Norway3.jpg',
-					id: 16,
 					location: "Ålfoten, Norway",
 					date: "Summer 2019"
 				},
