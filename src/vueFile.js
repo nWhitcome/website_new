@@ -197,7 +197,7 @@ Vue.component('resume_page', {
 		}
 	},
 	mounted: function() {
-		this.$refs.scroll_content.addEventListener('scroll', this.onScroll)
+		//this.$refs.scroll_content.addEventListener('scroll', this.onScroll)
 	},
 	template: `
 	<div id="middle_inner_content" ref="scroll_content">
@@ -227,8 +227,8 @@ Vue.component('resume_page', {
 						<p class="par_padding"><b>Iowa State University, Ames IA</b><br>
 						(Expected Graduation May 2020)
 						Bachelor of Science, Computer Engineering<br>
-						GPA: 3.15<br>
-						Major GPA: 3.46</p>
+						GPA: 3.26<br>
+						Major GPA: 3.58</p>
 						<br>
 
 						<h2>Leadership/Volunteer Experience</h2>
@@ -258,7 +258,8 @@ Vue.component('resume_page', {
 						CS 363 – Introduction to Database Systems<br>
 						CPR E 430 – Network Protocols and Security<br>
 						CPR E 431 – Information Systems Security<br>
-						CPR E 489 – Data Communications
+						CPR E 489 – Data Communications<br>
+						LD ST 322 - Leadership in a Diverse Society
 						</p><br>
 					
 					
@@ -290,6 +291,7 @@ Vue.component('resume_page', {
 
 						<h2>Other Interests</h2>
 						<p class="par_padding">
+						Political Student Group (Fall 2019)<br>
 						Boxing (Fall 2018)<br>
 						Audio Engineering Society (Spring 2017)<br><br>
 						<b>Music</b><br>
@@ -325,20 +327,10 @@ Vue.component('projects_page', {
 		}
 	},
 	mounted: function() {
-		this.$refs.scroll_content.addEventListener('scroll', this.onScroll)
+		//this.$refs.scroll_content.addEventListener('scroll', this.onScroll)
 	},
 	template: `
 	<div id="middle_inner_content" ref="scroll_content">
-		<div class="info_card">
-			<div class="inner_box">
-				<div class="button_bar">
-					<h1>394 Ethics Essay</h1>
-				</div>
-				<p>I had to write an ethics essay for my Cpr E 394 class, and it made me think about where I draw the line with my personal etics. I've become more involved in politics recently, and having this assignment made me think more about my impact on the world than I have before.
-				</p>
-				<minimize_content html_insert="<iframe src='./src/Ethics_Essay.pdf' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
-			</div>
-		</div>
 		<div class="info_card">
 			<div class="inner_box">
 				<div class="button_bar">
@@ -393,6 +385,14 @@ Vue.component('projects_page', {
 				<br>
 				There's a lot I want to do on for this project. I got the basic idea working using the Spotify and Lifx APIs, bit I want to do a lot more, including a mobile app. I've never 
 				done mobile development before, so I bought an online course to teach myself. Unfortunately, I don't have time to work on it because school is more important. I'm hoping to start development again sometime soon using Flutter.</p>
+				<br>
+				<h2>Spring 2020 Update</h2>
+				<p>Since I last posted about this project I have made it so that the lights pulse to the music that is playing. I did this using the Spotify API, which includes information
+				about each song that is broken down into individual segments that have a starting and peak volume level.
+				<br>
+				<br>
+				There are still some issues, such as the program not working after a couple of hours and that it doesn't keep up with changes in the song currently playing if it is changed
+				in any other way other than through the program or the song ending. That should be a pretty easy fix when I have time.</p>
 				<div class="multi_image_holder">
 					<img style="max-width: 600px; padding: 0 4px;" src="src/project_pictures/lifx_spotify/lifx_gif_opt.gif">
 				</div>
@@ -411,6 +411,16 @@ Vue.component('projects_page', {
 				a lot more experience with Vue and Node.js at work. I wanted to show what I learned rather than just talking about it. The new site is also my first use of Vuex, which I think 
 				will be important for me to know how to use in the future.</p>
 				<minimize_content html_insert="<iframe src='https://nWhitcome.github.io' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
+			</div>
+		</div>
+		<div class="info_card">
+			<div class="inner_box">
+				<div class="button_bar">
+					<h1>394 Ethics Essay</h1>
+				</div>
+				<p>I had to write an ethics essay for my Cpr E 394 class, and it made me think about where I draw the line with my personal etics. I've become more involved in politics recently, and having this assignment made me think more about my impact on the world than I have before.
+				</p>
+				<minimize_content html_insert="<iframe src='./src/Ethics_Essay.pdf' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
 			</div>
 		</div>
 		<div class="info_card bottom_copyright">
@@ -511,7 +521,7 @@ Vue.component('music_page', {
 		}
 	},
 	mounted: function() {
-		this.$refs.scroll_content.addEventListener('scroll', this.onScroll)
+		//this.$refs.scroll_content.addEventListener('scroll', this.onScroll)
 	},
 	template: `
 	<div id="middle_inner_content" ref="scroll_content">
