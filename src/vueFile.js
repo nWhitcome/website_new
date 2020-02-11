@@ -203,7 +203,7 @@ Vue.component('resume_page', {
 	<div id="middle_inner_content" ref="scroll_content">
 		<div class="info_card">
 			<div class="inner_box">
-				<h1>Nathan Whitcome | GPA: 3.15</h1>
+				<h1>Nathan Whitcome | GPA: 3.26</h1>
 				<div class="small_image_holder">
 					<img src="src/resume_pictures/CSS3_logo_and_wordmark.svg.png" class="resume_image">
 					<img src="src/resume_pictures/HTML.png" class="resume_image">
@@ -291,7 +291,7 @@ Vue.component('resume_page', {
 
 						<h2>Other Interests</h2>
 						<p class="par_padding">
-						Political Student Group (Fall 2019)<br>
+						Political Student Group (Fall 2019 - Present)<br>
 						Boxing (Fall 2018)<br>
 						Audio Engineering Society (Spring 2017)<br><br>
 						<b>Music</b><br>
