@@ -203,6 +203,14 @@ Vue.component('resume_page', {
 	<div id="middle_inner_content" ref="scroll_content">
 		<div class="info_card">
 			<div class="inner_box">
+			<div class="button_bar">
+					<h1>Career Objective</h1>
+					<p>As a programmer, it is important that I am always growing and adapting to </p>
+				</div>
+			</div>
+		</div>
+		<div class="info_card">
+			<div class="inner_box">
 				<h1>Nathan Whitcome | GPA: 3.26</h1>
 				<div class="small_image_holder">
 					<img src="src/resume_pictures/CSS3_logo_and_wordmark.svg.png" class="resume_image">
@@ -334,6 +342,61 @@ Vue.component('projects_page', {
 		<div class="info_card">
 			<div class="inner_box">
 				<div class="button_bar">
+					<h1>CPR E 494 Reflections</h1>
+				</div>
+				<p>Below are a couple relections I did about my experience at Iowa State. I thought I'd put it all here since my webpage is getting kind of cluttered with all
+				 those tabs at the top.</p>
+				<h2>General Education</h2>
+				<minimize_content html_insert="<iframe src='./src/senior_design/Cumulative_Reflection.pdf' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
+				<br>
+				<h2>Cumulative</h2>
+				<minimize_content html_insert="<iframe src='./src/senior_design/GE_Reflection.pdf' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
+			</div>
+		</div>
+		<div class="info_card">
+			<div class="inner_box">
+				<div class="button_bar">
+					<h1>Senior Design Group 36</h1>
+					<custom_button text_val="Webpage" r_val=168 g_val=56 b_val=59 link_value='http://sdmay20-36.sd.ece.iastate.edu/'></custom_button>
+				</div>
+				<p>The senior design project that I have been involved with this year is called Open-Source Prototyping of 5G Wireless Systems for UGV/UAV,
+				which basically means that we are working on experimental 5G networking systems to be used in unmanned ground and air vehicles.</p>
+				<p>My role in the project has changed as time has progressed. I started out as part of a team trying to get OpenAirInterface, or OAI, working,
+				which is an open-source 5G simulation and testing software. I have switched over to using SUMO, which is a program that simulates traffic
+				of vehicles on a given area, which we want to use to send data to be simulated over to OAI for testing. My job right now is to create software
+				using visual C++ to give a visual representation of this data as well as where cell towers and devices that connect to those towers would be
+				located.</p>
+				<p>I've learned a lot about how incredibly difficult it can be to get open source code running. OAI requires very specific hardware and software
+				 to even run, meaning I spent a couple dozen hours just trying to get it to work. Modifying the code has also been hard since it's not very well documented 
+				 and there are hundreds of thousands of lines of code.</p>
+				<p>The project doesn't involve very much coding, so I haven't learned a lot in that respect, but I have learned a lot about how wireless cell systems
+				work. Right now I'm learning visual C++, which I have no experience with at all.</p>
+				<p>Overall, this project is quite exciting for the future of wireless communication. The goal is to implement a new algorithm that would increase the reliability
+				 and lower the latency of 5G systems, which means that things like remote surgery could be possible in the near future. Learning about 5G technology has
+				 been interesting, although it is hard to work with since it's so new.</p>
+				<minimize_content html_insert="<iframe src='./src/senior_design/PeerEvaluation.pdf' class='general_iframe' frameBorder='0'></iframe>"></minimize_content>
+			</div>
+		</div>
+		<div class="info_card">
+			<div class="inner_box">
+				<div class="button_bar">
+					<h1>Power Electronics International</h1>
+				</div>
+				<p>I spent two summers working at Power Electronics International in East Dundee, and I learned quite a bit about programming and working on a real project
+				 in a way that I had not at school. I spent most of my time doing development of a project called the PE Hub that has just been announced. PEI sells 
+				crane control motors, and this device allows people to get live updates about all of those drives at once from a laptop or phone.</p>
+				<p>I did a lot of full-stack web deveopment for this project, which I had never done before up until that point. I learned about javascript 
+				as well as how to use things like Node Project Manager and how to debug web applications. I worked on a team, so I did learn a good bit about working 
+				with other people, although they were working on different areas of the project. The company is quite small, so I was able to meet with people in 
+				other departments face-to-face to understand what our customers are really looking for in a product.</p>
+				<p>I didn't do a dont of evaluations while I was there since it was such a small company, but I did give many presentations and walk-throughs of the project. 
+				I learned that it's quite easy to talk about something when you're really passionate about it and know it like the back of your hand. Presntations have always 
+				been easy for me, so it was an enjoyable experience. I don't have have any pictures or anything of the finished product since it's still under active development.</p>
+			</div>
+		</div>
+		<div class="info_card">
+			<div class="inner_box">
+				<div class="button_bar">
 					<h1>Pathfinder</h1>
 					<custom_button text_val="Github" r_val=85 g_val=85 b_val=85 link_value='https://github.com/nWhitcome/hackisu2018'></custom_button>
 					<custom_button text_val="Webpage" r_val=168 g_val=56 b_val=59 link_value='https://hackisu2018dev.herokuapp.com/'></custom_button>
@@ -380,18 +443,14 @@ Vue.component('projects_page', {
 				</div>
 				<p>This is a project that I've had my mind on for a very long time. My roommate CJ had gotten his hands on some Lifx smart bulbs that are generally controlled by a cell phone and I thought it would be pretty cool to do some programming with them if possible.
 				I looked online and it turns out that they have an open API! This opens the door to a lot of fun projects, including having the bulbs change color based on what the 
-				user is currently listening to on Spotify. This hasn't been done from what I can tell, so I decided to try it myself. The code is on my Github but it is private.
-				<br>
-				<br>
-				There's a lot I want to do on for this project. I got the basic idea working using the Spotify and Lifx APIs, bit I want to do a lot more, including a mobile app. I've never 
+				user is currently listening to on Spotify. This hasn't been done from what I can tell, so I decided to try it myself. The code is on my Github but it is private.</p>
+				<p>There's a lot I want to do on for this project. I got the basic idea working using the Spotify and Lifx APIs, bit I want to do a lot more, including a mobile app. I've never 
 				done mobile development before, so I bought an online course to teach myself. Unfortunately, I don't have time to work on it because school is more important. I'm hoping to start development again sometime soon using Flutter.</p>
 				<br>
 				<h2>Spring 2020 Update</h2>
 				<p>Since I last posted about this project I have made it so that the lights pulse to the music that is playing. I did this using the Spotify API, which includes information
-				about each song that is broken down into individual segments that have a starting and peak volume level.
-				<br>
-				<br>
-				There are still some issues, such as the program not working after a couple of hours and that it doesn't keep up with changes in the song currently playing if it is changed
+				about each song that is broken down into individual segments that have a starting and peak volume level.</p>
+				<p>There are still some issues, such as the program not working after a couple of hours and that it doesn't keep up with changes in the song currently playing if it is changed
 				in any other way other than through the program or the song ending. That should be a pretty easy fix when I have time.</p>
 				<div class="multi_image_holder">
 					<img style="max-width: 600px; padding: 0 4px;" src="src/project_pictures/lifx_spotify/lifx_gif_opt.gif">
