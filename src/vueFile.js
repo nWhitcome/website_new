@@ -229,20 +229,17 @@ Vue.component('resume_page', {
 					<custom_button text_val="LinkedIn" r_val=72 g_val=117 b_val=180 link_value='https://www.linkedin.com/in/nathan-whitcome-310977149/'></custom_button>
 				</div>
 				<div id="resume_content">
-						<h2>Objective</h2>
-						<p class="par_padding">Find full time work after graduating in May 2020</p>
-						<br>
-
 						<h2>Education</h2>
-						<p class="par_padding"><b>Iowa State University, Ames IA</b><br>
-						(Expected Graduation May 2020)
+						<p class="par_padding"><b>Iowa State University, Ames IA (2016 - May 2020)</b><br>
 						Bachelor of Science, Computer Engineering<br>
 						GPA: 3.26<br>
 						Major GPA: 3.58</p>
 						<br>
 
-						<h2>Leadership/Volunteer Experience</h2>
-						<p class="par_padding"><b>Boy Scouts of America</b><br>
+						<h2>Relevant Experience</h2>
+						<p class="par_padding">
+						<b>Hack ISU (2017 - 2019)</b><br>
+						<b>Boy Scouts of America</b><br>
 						Eagle Scout, 12 years of experience<br>
 						<ul>
 							<li>Organized two food drives</li>
@@ -253,10 +250,7 @@ Vue.component('resume_page', {
 						<br>
 
 						<h2>Relevant Classes/Experience</h2>
-						<p class="par_padding"><b>Hack ISU</b><br>
-						Spring 2017<br>
-						Spring 2018<br>
-						Fall 2019<br><br>
+						<p class="par_padding">
 						<b>Iowa State Classes</b><br>
 						CPR E 281 – Digital Logic and Circuit Design<br>
 						CPR E 288 – Embedded Systems Programming<br>
@@ -446,7 +440,7 @@ Vue.component('projects_page', {
 				<p>This is a project that I've had my mind on for a very long time. My roommate CJ had gotten his hands on some Lifx smart bulbs that are generally controlled by a cell phone and I thought it would be pretty cool to do some programming with them if possible.
 				I looked online and it turns out that they have an open API! This opens the door to a lot of fun projects, including having the bulbs change color based on what the 
 				user is currently listening to on Spotify. This hasn't been done from what I can tell, so I decided to try it myself. The code is on my Github but it is private.</p>
-				<p>There's a lot I want to do on for this project. I got the basic idea working using the Spotify and Lifx APIs, bit I want to do a lot more, including a mobile app. I've never 
+				<p>There's a lot I want to do on for this project. I got the basic idea working using the Spotify and Lifx APIs, but I want to do a lot more, including a mobile app. I've never 
 				done mobile development before, so I bought an online course to teach myself. Unfortunately, I don't have time to work on it because school is more important. I'm hoping to start development again sometime soon using Flutter.</p>
 				<br>
 				<h2>Spring 2020 Update</h2>
