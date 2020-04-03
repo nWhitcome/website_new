@@ -229,12 +229,26 @@ Vue.component('resume_page', {
 					<custom_button text_val="LinkedIn" r_val=72 g_val=117 b_val=180 link_value='https://www.linkedin.com/in/nathan-whitcome-310977149/'></custom_button>
 				</div>
 				<div id="resume_content">
+
+						<h2>Contact Info</h2>
+						<a class="par_padding" href='mailto&#58;nat&#104;a&#110;&#37;&#50;E&#119;hi&#116;c&#111;me&#37;2E&#98;u%73i%6Ee&#115;&#115;&#37;4&#48;gm%61il%&#50;Eco&#109;'>nathan&#46;whitc&#111;me&#46;busin&#101;s&#115;&#64;gm&#97;i&#108;&#46;com</a>
+						<br><br>
+
 						<h2>Education</h2>
 						<p class="par_padding"><b>Iowa State University, Ames IA (2016 - May 2020)</b><br>
 						Bachelor of Science, Computer Engineering<br>
 						GPA: 3.26<br>
 						Major GPA: 3.58</p>
 						<br>
+
+						<h2>Technical Skills</h2>
+						<p class="par_padding"><b>Programming – Name (Years Experience)</b><br>
+						C (3.5), Java (3.5), HTML (3), CSS (3), Vue.js (2), Node.js (2), Socket.io (2), NPM (2), JavaScript (2), PostgreSQL (2), MySQL (1.5), Python (1)
+						<br><br>
+						<b>Others – Name (Years Experience)</b><br>
+						Git (3.5), Circuits (3.5), Hadoop (0.5), Embedded Systems (1), Logic Design (1)
+
+						</p><br>
 
 						<h2>Relevant Experience</h2>
 						<p class="par_padding">
@@ -249,7 +263,7 @@ Vue.component('resume_page', {
 						</p>
 						<br>
 
-						<h2>Relevant Classes/Experience</h2>
+						<h2>College Classes</h2>
 						<p class="par_padding">
 						<b>Iowa State Classes</b><br>
 						CPR E 281 – Digital Logic and Circuit Design<br>
@@ -265,33 +279,6 @@ Vue.component('resume_page', {
 						CPR E 489 – Data Communications<br>
 						LD ST 322 - Leadership in a Diverse Society
 						</p><br>
-					
-					
-						<h2>Contact Info</h2>
-						<p class="par_padding">
-						&#119;&#104;&#105;&#116;&#099;&#111;&#109;&#101;&#064;&#105;&#097;&#115;&#116;&#097;&#116;&#101;&#046;&#101;&#100;&#117;
-						</p><br>
-
-						<h2>Work Experience</h2>
-						<p class="par_padding">
-						<b>Power Electronics International</b><br>
-						Web Design Internship (Summer 2018 - 2019)
-						<ul>
-							<li>Programming: Node Js, Python, HTML, CSS, Vue Js, and JavaScript</li>
-							<li>Developed software for the PE Ultra Hub</li>
-						</ul>
-						IT Work (Summer 2017)<br><br>
-						<b>ISU Dining</b><br>
-						Dining Staff (Fall 2016 - Spring 2017)
-						<p><br>
-
-						<h2>Technical Skills</h2>
-						<p class="par_padding"><b>Web Design</b><br>
-						Vue Js, Node Js, Socket.io, NPM, HTML, CSS<br><br>
-						<b>Others</b><br>
-						C, Java, Python, SQL, and JavaScript
-						Embedded Systems Programming
-						</p><br>
 
 						<h2>Other Interests</h2>
 						<p class="par_padding">
@@ -301,11 +288,45 @@ Vue.component('resume_page', {
 						<b>Music</b><br>
 						Self-taught multi-instrumentalist (2012 - Present)<br>
 						Open Mic Night (2016 - Present)
+						<br>
 						</p>
+				</div>
+				<div style="width: 100%; margin-top: 20px;">
+					<h2>Employment</h2>
+					<p class="par_padding">
+					<b>Power Electronics International</b><br>
+					Software Development Internship (Summer 2018 – 2019)<br>
+					<ul>
+						<li>Worked with a team to develop the PE Ultra Hub using full-stack web development skills</li>
+						<li>Created internal software using Python and SQL</li>
+					</ul>
+					IT Work (Summer 2017)<br><br>
+					</p>
+					<h2>Software Projects</h2>
+					<p class="par_padding">
+					<b>My Website</b><br>
+					<ul>
+						<li>Wrote a website to hold my projects, photos of me, music, and my resume</li>
+						<li>Written using Node.js on the backend with Vue.js, Vuex, HTML, and CSS on the frontend</li>
+						<li>Hosted in Heroku</li>
+					</ul>
+					<b>Spotify-Lifx</b><br>
+					<ul>
+						<li>Wrote a webapp that changes the color of Lifx bulbs to match colors of the album art of what a user is currently listening to on Spotify</li>
+						<li>Updated recently to change bulb brightness based on loudness information from the Spotify API</li>
+						<li>Written using JavaScript, HTML, CSS, Vue.js, the Spotify API, and the Lifx API</li>
+					</ul>
+					<b>Pathfinder – Hack ISU 2019</b><br>
+					<ul>
+						<li>Developed a webapp that generates running paths of a certain mileage that is determined by the user</li>
+						<li>Written using JavaScript, HTML, CSS, and the Google Maps API</li>
+						<li>Developed for Hack ISU in under 36 hours with no prior knowledge in the Google Maps API</li>
+					</ul>
+					</p>
 				</div>
 			</div>
 		</div>
-		<div class="info_card bottom_copyright"><p style="padding: 0">© 2019 Nathan Whitcome</p></div>
+		<div class="info_card bottom_copyright"><p style="padding: 0">© 2020 Nathan Whitcome</p></div>
 	</div>
 	`
 });
@@ -479,7 +500,7 @@ Vue.component('projects_page', {
 			</div>
 		</div>
 		<div class="info_card bottom_copyright">
-			<p style="padding: 0">© 2019 Nathan Whitcome</p>
+			<p style="padding: 0">© 2020 Nathan Whitcome</p>
 		</div>
 	</div>
 	`
@@ -633,7 +654,7 @@ Vue.component('music_page', {
 				</div>
 			</div>
 		</div>
-		<div class="info_card bottom_copyright"><p style="padding: 0">© 2019 Nathan Whitcome</p></div>
+		<div class="info_card bottom_copyright"><p style="padding: 0">© 2020 Nathan Whitcome</p></div>
 	</div>
 	`
 });
