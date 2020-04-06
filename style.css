@@ -187,14 +187,14 @@ footer{
 
 @font-face {
     font-family: 'Material_Icons';
-    src: url('fonts/Material_Icons.woff2') format('woff2');
+    src: url('src/fonts/Material_Icons.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Heebo';
-    src: url('fonts/Heebo-Regular.ttf') format('truetype');
+    src: url('src/fonts/Heebo-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
