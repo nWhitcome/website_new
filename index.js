@@ -3,8 +3,8 @@ var app = express();
 const fs = require('fs');
 var port = process.env.PORT || 3000;
 const options = {
-    key: fs.readFileSync('key.pem'),
-    cert: fs.readFileSync('origin.pem')
+    key: fs.readFileSync('keys/key.pem'),
+    cert: fs.readFileSync('keys/origin.pem')
 }
 var server = require('https').createServer(options, app);
 
