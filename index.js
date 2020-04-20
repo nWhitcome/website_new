@@ -2,11 +2,7 @@ var express = require('express');
 var app = express();
 const fs = require('fs');
 var port = process.env.PORT || 3000;
-const options = {
-    key: fs.readFileSync('keys/key.pem'),
-    cert: fs.readFileSync('keys/origin.pem')
-}
-var server = require('https').createServer(options, app);
+var server = require('http').createServer(app);
 
 app.use(express.static(__dirname));
 app.get('/', function(request, response) {
