@@ -73,7 +73,7 @@
         v-else
         v-bind:class="{'black_border_fill':(hamburger_hovered && !mouse_down_hamb), 'black_clicked_transp':mouse_down_hamb}"
         @mousedown="mouse_down_hamb = true"
-        @mouseup="mouse_down_hamb = false; console.log('Here')"
+        @mouseup="mouse_down_hamb = false"
         @mouseenter="hamburger_hovered = true"
         @mouseleave="hamburger_hovered = false"
         @click="hamburgerClicked()"
