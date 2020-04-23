@@ -3,6 +3,51 @@
     <div class="info_card">
       <div class="inner_box">
         <div class="button_bar">
+          <h1>Sticking Pattern Generator</h1>
+          <CustomButton
+            text_val="Github"
+            r_val="85"
+            g_val="85"
+            b_val="85"
+            link_value="https://github.com/nWhitcome/drum-sticking-pattern-generator"
+          ></CustomButton>
+          <CustomButton
+            text_val="Webpage"
+            r_val="168"
+            g_val="56"
+            b_val="59"
+            link_value="https://sticking-pattern.netlify.app/"
+          ></CustomButton>
+        </div>
+        <p>
+          I started learning how to play the drums last year after years of wanting to learn how to play. I eventually stumbled across what is called a sticking pattern, which spells out differnet patterns
+          in which you can hit the drums. There are three letters, R for right hand, L for left hand, and K for kick drum and they are arranged in unique patterns as a way of practicing and coming
+          up with drum patterns and fills.
+        </p>
+        <p>
+          I found a video on YouTube of a guy talking about how he would plug in the letters mentioned above into some sort of word generator to come up with patterns and I figured it would be fun
+          and useful to make a webapp specifically for generating sticking patterns that was a lot easier to use and had more features. As of today, 4/23/2020, it generates patterns of length 3 to
+          15 without repeats of more than two of the same letter in a row and allows the user to change each individual letter.
+        </p>
+        <br />
+        <h2>Future Development</h2>
+        <p>I have a bunch of features I want to add to this project including:</p>
+        <ol>
+          <li>Accented notes</li>
+          <li>A metronome with different sounds for each hit</li>
+          <li>Setting a length for notes, e.g. quarter notes, half notes, rests</li>
+          <li>Allowing users to change the colors of each hit type in case they prefer that to different letters</li>
+          <li>Dark theme</li>
+        </ol>
+        <br />
+        <MinimizeContent
+          html_insert="<iframe src='https://sticking-pattern.netlify.app/' class='general_iframe' frameBorder='0'></iframe>"
+        ></MinimizeContent>
+      </div>
+    </div>
+    <div class="info_card">
+      <div class="inner_box">
+        <div class="button_bar">
           <h1>Pathfinder</h1>
           <CustomButton
             text_val="Github"
