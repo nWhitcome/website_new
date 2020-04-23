@@ -83,7 +83,7 @@
       </div>
     </div>
     <transition name="slide_left" v-if="menu_visible && $store.state.winWidth < 600">
-      <menu_overlay key="menu" :selected="selected" @headingClicked="headingClicked"></menu_overlay>
+      <MenuOverlay key="menu" :selected="selected" @headingClicked="headingClicked"></MenuOverlay>
     </transition>
     <transition-group name="fade" tag="div" v-else-if="selected != 'photos_text'">
       <div
@@ -149,9 +149,10 @@
 import Resume from "./resume.vue";
 import Music from "./music.vue";
 import Projects from "./projects.vue";
+import MenuOverlay from "./menuOverlay.vue";
 export default {
   name: "topBar",
-  components: { Resume, Music, Projects },
+  components: { Resume, Music, Projects, MenuOverlay },
   data: function() {
     return {
       selected: "photos_text",
