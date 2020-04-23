@@ -507,7 +507,7 @@ Vue.component('projects_page', {
 });
 
 Vue.component('minimize_bar', {
-	data:function(){
+	data: function() {
 		return{
 			closed_state: false,
 			mainStyle:{
