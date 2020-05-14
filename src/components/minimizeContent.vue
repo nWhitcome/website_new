@@ -1,6 +1,6 @@
 <template>
   <div @click="switch_hidden()" style="display: flex; flex-direction: column">
-    <MinimizeBar></MinimizeBar>
+    <MinimizeBar :closed_prop="this.closed_state"></MinimizeBar>
     <span v-bind:style="mainStyle" v-html="content"></span>
   </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
 import MinimizeBar from "./minimizeBar";
 export default {
-  props: ["html_insert"],
+  props: ["html_insert", "closed_prop"],
   components: { MinimizeBar },
   data: function() {
     return {
@@ -24,6 +24,10 @@ export default {
   },
   created() {
     this.content = this.html_insert;
+    if(this.closed_prop != undefined){
+      this.closed_state = this.closed_prop;
+      this.mainStyle.maxHeight = "0px";
+    }
   },
   methods: {
     switch_hidden() {

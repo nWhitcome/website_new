@@ -1,13 +1,13 @@
 <template>
     <div id="middle_inner_content" ref="scroll_content">
-		<div class="info_card">
+		<!--<div class="info_card">
 			<div class="inner_box">
 				<div class="button_bar">
 					<h1>Career Objective</h1>
 					<p>As a programmer, it is important that I am always growing and adapting to the world around me. Languages come and go and I want to make sure that I'm as up-to-date as I can be in my career. I also want to make sure that my place of work follows my ethical code and that I feel fulfiilled at my job. I'm pretty flexible in terms of what I like to do, as long as I can see my impact on the world and enjoy the work that I do.</p>
 				</div>
 			</div>
-		</div>
+		</div>-->
 		<div class="info_card">
 			<div class="inner_box">
 				<h1>Nathan Whitcome | GPA: 3.26</h1>

@@ -95,7 +95,7 @@ footer{
     line-height: 50px;
     font-size: 26px;
     cursor: pointer;
-    transition: .15Fs;
+    transition: .15s;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */

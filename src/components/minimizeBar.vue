@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  props: ["closed_prop"],
   data: function() {
     return {
       closed_state: false,
@@ -25,6 +26,13 @@ export default {
         borderBottomLeftRadius: "0px"
       }
     };
+  },
+  created() {
+    if(this.closed_prop == true){
+      this.closed_state = this.closed_prop;
+      this.mainStyle.borderBottomRightRadius = "8px";
+      this.mainStyle.borderBottomLeftRadius = "8px";
+    }
   },
   methods: {
     switch_hidden() {

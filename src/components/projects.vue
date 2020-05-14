@@ -66,7 +66,7 @@
         </div>
         <p>
           Pathfinder is my project from Hack ISU 2018 using the Google Maps API. I had no idea what I wanted to do going in but decided to make something that had to do with running
-          after being inspired by my girlfriend. Hack ISU is a 36-hour competition, so I did as much development as I could in that time. I had never used the maps API before but I did
+          after being inspired by my friend. Hack ISU is a 36-hour competition, so I did as much development as I could in that time. I had never used the maps API before but I did
           have a lot of experience with Javascript. The app allows the user to put in a mileage number and a direction, generating a path of close to that length for the user to run on.
           This could prevent runners from getting bored and could keep them safe from predators that may memorize their path.
           <br />
@@ -184,7 +184,7 @@
           and lower the latency of 5G systems, which means that things like remote surgery could be possible in the near future. Learning about 5G technology has
           been interesting, although it is hard to work with since it's so new.
         </p>
-        <MinimizeContent
+        <MinimizeContent :closed_prop="true"
           html_insert="<iframe src='src/assets/senior_design/PeerEvaluation.pdf' class='general_iframe' frameBorder='0'></iframe>"
         ></MinimizeContent>
       </div>
@@ -238,7 +238,7 @@
           a lot more experience with Vue and Node.js at work. I wanted to show what I learned rather than just talking about it. The new site is also my first use of Vuex, which I think
           will be important for me to know how to use in the future.
         </p>
-        <MinimizeContent
+        <MinimizeContent :closed_prop="true"
           html_insert="<iframe src='https://nWhitcome.github.io' class='general_iframe' frameBorder='0'></iframe>"
         ></MinimizeContent>
       </div>
@@ -253,12 +253,12 @@
           those tabs at the top.
         </p>
         <h2>General Education</h2>
-        <MinimizeContent
+        <MinimizeContent :closed_prop="true"
           html_insert="<iframe src='./src/assets/senior_design/GE_Reflection.pdf' class='general_iframe' frameBorder='0'></iframe>"
         ></MinimizeContent>
         <br />
         <h2>Cumulative</h2>
-        <MinimizeContent
+        <MinimizeContent :closed_prop="true"
           html_insert="<iframe src='./src/assets/senior_design/Cumulative_Reflection.pdf' class='general_iframe' frameBorder='0'></iframe>"
         ></MinimizeContent>
       </div>
@@ -269,7 +269,7 @@
           <h1>394 Ethics Essay</h1>
         </div>
         <p>I had to write an ethics essay for my Cpr E 394 class, and it made me think about where I draw the line with my personal etics. I've become more involved in politics recently, and having this assignment made me think more about my impact on the world than I have before.</p>
-        <MinimizeContent
+        <MinimizeContent :closed_prop="true"
           html_insert="<iframe src='./src/assets/Ethics_Essay.pdf' class='general_iframe' frameBorder='0'></iframe>"
         ></MinimizeContent>
       </div>
