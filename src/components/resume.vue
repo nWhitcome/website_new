@@ -10,7 +10,7 @@
 		</div>-->
 		<div class="info_card">
 			<div class="inner_box">
-				<h1>Nathan Whitcome | GPA: 3.26</h1>
+				<h1>Nathan Whitcome | Computer Engineering</h1>
 				<div class="small_image_holder">
 					<img src="src/assets/resume_pictures/CSS3_logo_and_wordmark.svg.png" class="resume_image">
 					<img src="src/assets/resume_pictures/HTML.png" class="resume_image">
@@ -34,17 +34,17 @@
 						<h2>Education</h2>
 						<p class="par_padding"><b>Iowa State University, Ames IA (2016 - May 2020)</b><br>
 						Bachelor of Science, Computer Engineering<br>
-						GPA: 3.26<br>
-						Major GPA: 3.58
+						GPA: 3.28<br>
+						Major GPA: 3.63
 						</p>
 						<br>
 
 						<h2>Technical Skills</h2>
-						<p class="par_padding"><b>Programming – Name (Years Experience)</b><br>
-						C (3.5), Java (3.5), HTML (3), CSS (3), Vue.js (2), Node.js (2), Socket.io (2), NPM (2), JavaScript (2), PostgreSQL (2), MySQL (1.5), Python (1)
+						<p class="par_padding"><b>Programming</b><br>
+						C, Java, HTML, CSS, Vue.js, Vuex, Node.js, Socket.io, NPM, React, JavaScript, PostgreSQL, MySQL, Python, Junit, Apache Spark, MapReduce
 						<br><br>
-						<b>Others – Name (Years Experience)</b><br>
-						Git (3.5), Circuits (3.5), Hadoop (0.5), Embedded Systems (1), Logic Design (1)
+						<b>Others</b><br>
+						Git, Circuits, Hadoop, Embedded Systems, Logic Design
 						</p>
 						<br>
 
@@ -93,20 +93,25 @@
 					<h2>Employment</h2>
 					<p class="par_padding">
 					<b>Power Electronics International</b><br>
-					Software Development Internship (Summer 2018 – 2019)<br>
+					Software Engineer (Summer 2018 – current)<br>
 					<ul>
 						<li>Worked with a team to develop the PE Ultra Hub using full-stack web development skills</li>
+						<li>Saved PEI time and money by allowing faster, easier debugging and data logging of drives</li>
 						<li>Created internal software using Python and SQL</li>
 					</ul>
 					IT Work (Summer 2017)<br><br>
 					</p>
 					<h2>Software Projects</h2>
 					<p class="par_padding">
+					<b>Open-Source Prototyping of 5G Wireless Systems for UGV/UAV</b><br>
+					<ul>
+						<li>Worked with a team to help integrate the CPS-V2X scheduling algorithm into OpenAirInterface</li>
+						<li>Wrote software to connect OpenAirInterface to SUMO (Simulation of Urban MObility)</li>
+					</ul>
 					<b>My Website</b><br>
 					<ul>
 						<li>Wrote a website to hold my projects, photos of me, music, and my resume</li>
 						<li>Written using Node.js on the backend with Vue.js, Vuex, HTML, and CSS on the frontend</li>
-						<li>Hosted in Heroku</li>
 					</ul>
 					<b>Spotify-Lifx</b><br>
 					<ul>
