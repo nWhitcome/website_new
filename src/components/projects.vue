@@ -185,7 +185,7 @@
           been interesting, although it is hard to work with since it's so new.
         </p>
         <MinimizeContent :closed_prop="true"
-          html_insert="<iframe src='src/assets/senior_design/PeerEvaluation.pdf' class='general_iframe' frameBorder='0'></iframe>"
+          html_insert="<embed src='src/assets/senior_design/PeerEvaluation.pdf' class='general_iframe' frameBorder='0'/>"
         ></MinimizeContent>
       </div>
     </div>
@@ -254,12 +254,12 @@
         </p>
         <h2>General Education</h2>
         <MinimizeContent :closed_prop="true"
-          html_insert="<iframe src='./src/assets/senior_design/GE_Reflection.pdf' class='general_iframe' frameBorder='0'></iframe>"
+          html_insert="<embed src='./src/assets/senior_design/GE_Reflection.pdf' class='general_iframe' frameBorder='0'/>"
         ></MinimizeContent>
         <br />
         <h2>Cumulative</h2>
         <MinimizeContent :closed_prop="true"
-          html_insert="<iframe src='./src/assets/senior_design/Cumulative_Reflection.pdf' class='general_iframe' frameBorder='0'></iframe>"
+          html_insert="<embed src='./src/assets/senior_design/Cumulative_Reflection.pdf' class='general_iframe' frameBorder='0'/>"
         ></MinimizeContent>
       </div>
     </div>
@@ -270,7 +270,7 @@
         </div>
         <p>I had to write an ethics essay for my Cpr E 394 class, and it made me think about where I draw the line with my personal etics. I've become more involved in politics recently, and having this assignment made me think more about my impact on the world than I have before.</p>
         <MinimizeContent :closed_prop="true"
-          html_insert="<iframe src='./src/assets/Ethics_Essay.pdf' class='general_iframe' frameBorder='0'></iframe>"
+          html_insert="<embed src='./src/assets/Ethics_Essay.pdf' class='general_iframe' frameBorder='0'/>"
         ></MinimizeContent>
       </div>
     </div>
