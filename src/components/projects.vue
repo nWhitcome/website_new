@@ -3,6 +3,54 @@
     <div class="info_card">
       <div class="inner_box">
         <div class="button_bar">
+          <h1>Senior Design Group 36</h1>
+          <CustomButton
+            text_val="Webpage"
+            r_val="168"
+            g_val="56"
+            b_val="59"
+            link_value="http://sdmay20-36.sd.ece.iastate.edu/"
+          ></CustomButton>
+        </div>
+        <p>
+          The senior design project that I have been involved with this year is called Open-Source Prototyping of 5G Wireless Systems for UGV/UAV,
+          which basically means that we are working on experimental 5G networking systems to be used in unmanned ground and air vehicles.
+        </p>
+        <p>
+          My role in the project has changed as time has progressed. I started out as part of a team trying to get OpenAirInterface, or OAI, working,
+          which is an open-source 5G simulation and testing software. I have switched over to using SUMO, which is a program that simulates traffic
+          of vehicles on a given area, which we want to use to send data to be simulated over to OAI for testing. My job right now is to create software
+          using visual C++ to give a visual representation of this data as well as where cell towers and devices that connect to those towers would be
+          located.
+        </p>
+        <p>
+          I've learned a lot about how incredibly difficult it can be to get open source code running. OAI requires very specific hardware and software
+          to even run, meaning I spent a couple dozen hours just trying to get it to work. Modifying the code has also been hard since it's not very well documented
+          and there are hundreds of thousands of lines of code.
+        </p>
+        <p>
+          The project doesn't involve very much coding, so I haven't learned a lot in that respect, but I have learned a lot about how wireless cell systems
+          work. Right now I'm learning visual C++, which I have no experience with at all.
+        </p>
+        <p>
+          Overall, this project is quite exciting for the future of wireless communication. The goal is to implement a new algorithm that would increase the reliability
+          and lower the latency of 5G systems, which means that things like remote surgery could be possible in the near future. Learning about 5G technology has
+          been interesting, although it is hard to work with since it's so new.
+        </p>
+        <h2>IRP Presentation</h2>
+        <MinimizeContent
+          html_insert="<embed src='src/assets/senior_design/IRP_Presentation.pdf' class='general_iframe' frameBorder='0'/>"
+        ></MinimizeContent>
+        <br>
+        <h2>Final Report</h2>
+        <MinimizeContent :closed_prop="true"
+          html_insert="<embed src='src/assets/senior_design/FinalReport.pdf' class='general_iframe' frameBorder='0'/>"
+        ></MinimizeContent>
+      </div>
+    </div>
+    <div class="info_card">
+      <div class="inner_box">
+        <div class="button_bar">
           <h1>Sticking Pattern Generator</h1>
           <CustomButton
             text_val="Github"
@@ -145,48 +193,6 @@
             src="src/assets/project_pictures/lifx_spotify/lifx_gif_opt.gif"
           />
         </div>
-      </div>
-    </div>
-    <div class="info_card">
-      <div class="inner_box">
-        <div class="button_bar">
-          <h1>Senior Design Group 36</h1>
-          <CustomButton
-            text_val="Webpage"
-            r_val="168"
-            g_val="56"
-            b_val="59"
-            link_value="http://sdmay20-36.sd.ece.iastate.edu/"
-          ></CustomButton>
-        </div>
-        <p>
-          The senior design project that I have been involved with this year is called Open-Source Prototyping of 5G Wireless Systems for UGV/UAV,
-          which basically means that we are working on experimental 5G networking systems to be used in unmanned ground and air vehicles.
-        </p>
-        <p>
-          My role in the project has changed as time has progressed. I started out as part of a team trying to get OpenAirInterface, or OAI, working,
-          which is an open-source 5G simulation and testing software. I have switched over to using SUMO, which is a program that simulates traffic
-          of vehicles on a given area, which we want to use to send data to be simulated over to OAI for testing. My job right now is to create software
-          using visual C++ to give a visual representation of this data as well as where cell towers and devices that connect to those towers would be
-          located.
-        </p>
-        <p>
-          I've learned a lot about how incredibly difficult it can be to get open source code running. OAI requires very specific hardware and software
-          to even run, meaning I spent a couple dozen hours just trying to get it to work. Modifying the code has also been hard since it's not very well documented
-          and there are hundreds of thousands of lines of code.
-        </p>
-        <p>
-          The project doesn't involve very much coding, so I haven't learned a lot in that respect, but I have learned a lot about how wireless cell systems
-          work. Right now I'm learning visual C++, which I have no experience with at all.
-        </p>
-        <p>
-          Overall, this project is quite exciting for the future of wireless communication. The goal is to implement a new algorithm that would increase the reliability
-          and lower the latency of 5G systems, which means that things like remote surgery could be possible in the near future. Learning about 5G technology has
-          been interesting, although it is hard to work with since it's so new.
-        </p>
-        <MinimizeContent :closed_prop="true"
-          html_insert="<embed src='src/assets/senior_design/PeerEvaluation.pdf' class='general_iframe' frameBorder='0'/>"
-        ></MinimizeContent>
       </div>
     </div>
     <div class="info_card">
