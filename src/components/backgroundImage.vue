@@ -136,11 +136,35 @@ export default {
           date: "Summer 2019"
         },
         {
-          link: "src/assets/background_pictures/Norway6.jpg",
+          link: "src/assets/background_pictures/ArtMus.jpg",
           id: 19,
-          location: "Norway",
-          date: "Summer 2019"
-        }
+          location: "Des Moines Art Center, Des Moines",
+          date: "Fall 2020"
+        },
+        {
+          link: "src/assets/background_pictures/Dubuque.jpg",
+          id: 20,
+          location: "Dubuque, IA",
+          date: "Winter 2020"
+        },
+        {
+          link: "src/assets/background_pictures/Frontenac.jpg",
+          id: 21,
+          location: "Frontenac State Park, Minnesota",
+          date: "Fall 2020"
+        },
+        {
+          link: "src/assets/background_pictures/Lockwood.jpg",
+          id: 22,
+          location: "Lockwood Cafe, Ames, IA",
+          date: "Winter 2020"
+        },
+        {
+          link: "src/assets/background_pictures/Reiman.jpg",
+          id: 23,
+          location: "Reiman Gardens, Ames, IA",
+          date: "Winter 2020"
+        },
       ],
       allow_click: true,
       current_timer: null,
