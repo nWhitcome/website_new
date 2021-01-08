@@ -15,10 +15,10 @@
           v-bind:class="{projects_text_selected_clear: (selected == 'photos_text' || top_hover.ph == true)}"
           class="projects_text"
         >Photos</div>
-        <div
+        <!--<div
           v-bind:class="{projects_text_selected_clear: (selected == 'music_text' || top_hover.mu == true)}"
           class="projects_text"
-        >Music</div>
+        >Music</div>-->
         <div
           v-bind:class="{projects_text_selected_clear: (selected == 'resume_text' || top_hover.re == true)}"
           class="projects_text"
@@ -54,13 +54,13 @@
           class="projects_text"
           @click="headingClicked(true, 'photos_text')"
         >Photos</div>
-        <div
+        <!--<div
           @mouseenter="top_hover.mu = true;"
           @mouseleave="top_hover.mu = false"
           v-bind:class="{projects_text_selected_clear: (selected == 'music_text' || top_hover.mu == true)}"
           class="projects_text"
           @click="headingClicked(false, 'music_text')"
-        >Music</div>
+        >Music</div>-->
         <div
           @mouseenter="top_hover.re = true;"
           @mouseleave="top_hover.re = false"
@@ -91,11 +91,11 @@
         id="middle_content"
         key="middle"
       >
-        <Music
+        <!--<Music
           v-show="selected == 'music_text'"
           :bar_hidden="bar_hidden"
           @change_bar="change_bar"
-        ></Music>
+        ></Music>-->
         <Resume
           v-show="selected == 'resume_text'"
           :bar_hidden="bar_hidden"

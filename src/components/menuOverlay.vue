@@ -14,12 +14,12 @@
             class="projects_text menu_font"
           >Photos</div>
         </div>
-        <div class="bar_item_wrap">
+        <!--<div class="bar_item_wrap">
           <div
             v-bind:class="{projects_text_selected: selected == 'music_text', projects_text: selected != 'music_text'}"
             class="projects_text menu_font"
           >Music</div>
-        </div>
+        </div>-->
         <div class="bar_item_wrap">
           <div
             v-bind:class="{projects_text_selected: selected == 'resume_text', projects_text: selected != 'resume_text'}"
@@ -48,13 +48,13 @@
             @click="headingClicked(true, 'photos_text')"
           >Photos</div>
         </div>
-        <div class="bar_item_wrap">
+        <!--<div class="bar_item_wrap">
           <div
             v-bind:class="{projects_text_selected_clear: selected == 'music_text', projects_text: selected != 'music_text'}"
             class="projects_text menu_font"
             @click="headingClicked(false, 'music_text')"
           >Music</div>
-        </div>
+        </div>-->
         <div class="bar_item_wrap">
           <div
             v-bind:class="{projects_text_selected_clear: selected == 'resume_text', projects_text: selected != 'resume_text'}"
