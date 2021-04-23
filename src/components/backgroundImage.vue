@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100%; overflow:hidden;">
-    <div style="display:flex; flex-direction: row; width: "></div>
+    <div style="display:flex; flex-direction: row;"></div>
     <transition-group class="carousel" tag="div">
       <div
         v-for="(item, index) in picture_links"
@@ -25,7 +25,7 @@
       </div>
     </transition-group>
     <div
-      style="background-color: white; z-index: -3; position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px; display: flex; justify-content: center; align-items: center;"
+      style="background-color: white; z-index: -3; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; display: flex; justify-content: center; align-items: center;"
     >
       <div style="color: #888; font-size: 24px;">Loading...</div>
     </div>

@@ -1,17 +1,9 @@
 <template>
     <div id="middle_inner_content" ref="scroll_content">
-		<!--<div class="info_card">
-			<div class="inner_box">
-				<div class="button_bar">
-					<h1>Career Objective</h1>
-					<p>As a programmer, it is important that I am always growing and adapting to the world around me. Languages come and go and I want to make sure that I'm as up-to-date as I can be in my career. I also want to make sure that my place of work follows my ethical code and that I feel fulfiilled at my job. I'm pretty flexible in terms of what I like to do, as long as I can see my impact on the world and enjoy the work that I do.</p>
-				</div>
-			</div>
-		</div>-->
 		<div class="info_card">
 			<div class="inner_box">
 				<h1>Nathan Whitcome | Computer Engineering</h1>
-				<div class="small_image_holder">
+				<!--<div class="small_image_holder">
 					<img src="src/assets/resume_pictures/CSS3_logo_and_wordmark.svg.png" class="resume_image">
 					<img src="src/assets/resume_pictures/HTML.png" class="resume_image">
 					<img src="src/assets/resume_pictures/Git-Logo-Black.png" class="resume_image">
@@ -20,7 +12,7 @@
 					<img src="src/assets/resume_pictures/React.png" class="resume_image">
 					<img src="src/assets/resume_pictures/SQL.png" class="resume_image">
 					<img src="src/assets/resume_pictures/vue.png" class="resume_image">
-				</div>
+				</div> -->
 				<div class="button_bar" style="padding: 0 0 10px;">
 					<CustomButton text_val="Github" r_val=85 g_val=85 b_val=85 link_value='https://github.com/nWhitcome/'></CustomButton>
 					<CustomButton text_val="LinkedIn" r_val=72 g_val=117 b_val=180 link_value='https://www.linkedin.com/in/nathan-whitcome-310977149/'></CustomButton>
@@ -32,32 +24,32 @@
 						<br><br>
 
 						<h2>Education</h2>
-						<p class="par_padding"><b>Iowa State University, Ames IA (2016 - May 2020)</b><br>
+						<p class="par_padding"><b>Iowa State University, Ames IA </b><br>
+						Master of Engineering, Computer Engineering<br>
+						GPA: 3.84 (Fall 2020 - current)
+						<br><br>
 						Bachelor of Science, Computer Engineering<br>
-						GPA: 3.28<br>
-						Major GPA: 3.63
+						GPA: 3.28 | Major GPA: 3.63 (Fall 2016 - May 2020)<br>
 						</p>
 						<br>
 
 						<h2>Technical Skills</h2>
-						<p class="par_padding"><b>Programming</b><br>
-						C, Java, HTML, CSS, Vue.js, Vuex, Node.js, Socket.io, NPM, React, JavaScript, PostgreSQL, MySQL, Python, Junit, Apache Spark, MapReduce
+						<p class="par_padding"><b>Languages</b><br>
+						C, C++, Java, Python, SQL, JavaScript, HTML, CSS
+						<br><br>
+						<b>Networking</b><br>
+						SDN (ONOS/ODL), TCP/IP, OpenStack, HTTP, RTP, RTSP, UDP, TCP Congestion Control, CSMA/CD, CSMA/CD
 						<br><br>
 						<b>Others</b><br>
-						Git, Circuits, Hadoop, Embedded Systems, Logic Design
+						Vue.js, Vuex, Node.js, Git, React, Apache Spark, MapReduce, Hadoop, Embedded Systems, Circuit Design
 						</p>
 						<br>
 
-						<h2>Relevant Experience</h2>
+						<h2>Other</h2>
 						<p class="par_padding">
-						<b>Hack ISU (2017 - 2019)</b><br>
-						<b>Boy Scouts of America</b><br>
+						Hack ISU (2017 - 2019)<br>
 						Eagle Scout, 12 years of experience<br>
-						<ul>
-							<li>Organized two food drives</li>
-							<li>Served at blood drives, Feed My Starving Children, eagle projects, etc.</li>
-							<li>Senior Patrol Leader for over a year</li>
-						</ul>
+						Fully vaccinated against COVID-19
 						</p>
 						<br>
 
@@ -75,25 +67,28 @@
 						CPR E 430 – Network Protocols and Security<br>
 						CPR E 431 – Information Systems Security<br>
 						CPR E 489 – Data Communications<br>
-						LD ST 322 - Leadership in a Diverse Society
+						LD ST 322 - Leadership in a Diverse Society<br>
+						CPR E 537 - Wireless Network Security<br>
+						CPR E 541 - High Performance Communication Networks<br>
+						CPR E 543 - Wireless Network Architecture<br>
+						CPR E 559 - Security and Privacy in Cloud Computing
 						</p><br>
-
-						<h2>Other Interests</h2>
-						<p class="par_padding">
-						Political Student Group (Fall 2019 - Present)<br>
-						Boxing (Fall 2018)<br>
-						Audio Engineering Society (Spring 2017)<br><br>
-						<b>Music</b><br>
-						Self-taught multi-instrumentalist (2012 - Present)<br>
-						Open Mic Night (2016 - Present)
-						<br>
-						</p>
 				</div>
 				<div style="width: 100%; margin-top: 20px;">
-					<h2>Employment</h2>
+					<h2>Professional Experience</h2>
 					<p class="par_padding">
+					<b>Iowa State University</b><br>
+					Teaching Assistant (Spring 2021)<br>
+					<ul>
+						<li>Working to assist with CPR E 489: Computer Networking and Data Communications</li>
+					</ul><br>
+					Graduate Research Assistant (Fall 2020 - current)<br>
+					<ul>
+						<li>Worked with a team on the ARA project, which focuses on creating an advanced wireless testbed across Iowa</li>
+						<li>Specialized in Software Defined Networking and integration with OpenStack</li>
+					</ul><br>
 					<b>Power Electronics International</b><br>
-					Software Engineer (Summer 2018 – current)<br>
+					Software Engineer (Summer 2018 – Summer 2020)<br>
 					<ul>
 						<li>Worked with a team to develop the PE Ultra Hub using full-stack web development skills</li>
 						<li>Saved PEI time and money by allowing faster, easier debugging and data logging of drives</li>
@@ -101,35 +96,10 @@
 					</ul>
 					IT Work (Summer 2017)<br><br>
 					</p>
-					<h2>Software Projects</h2>
-					<p class="par_padding">
-					<b>Open-Source Prototyping of 5G Wireless Systems for UGV/UAV</b><br>
-					<ul>
-						<li>Worked with a team to help integrate the CPS-V2X scheduling algorithm into OpenAirInterface</li>
-						<li>Wrote software to connect OpenAirInterface to SUMO (Simulation of Urban MObility)</li>
-					</ul>
-					<b>My Website</b><br>
-					<ul>
-						<li>Wrote a website to hold my projects, photos of me, music, and my resume</li>
-						<li>Written using Node.js on the backend with Vue.js, Vuex, HTML, and CSS on the frontend</li>
-					</ul>
-					<b>Spotify-Lifx</b><br>
-					<ul>
-						<li>Wrote a webapp that changes the color of Lifx bulbs to match colors of the album art of what a user is currently listening to on Spotify</li>
-						<li>Updated recently to change bulb brightness based on loudness information from the Spotify API</li>
-						<li>Written using JavaScript, HTML, CSS, Vue.js, the Spotify API, and the Lifx API</li>
-					</ul>
-					<b>Pathfinder – Hack ISU 2019</b><br>
-					<ul>
-						<li>Developed a webapp that generates running paths of a certain mileage that is determined by the user</li>
-						<li>Written using JavaScript, HTML, CSS, and the Google Maps API</li>
-						<li>Developed for Hack ISU in under 36 hours with no prior knowledge in the Google Maps API</li>
-					</ul>
-					</p>
 				</div>
 			</div>
 		</div>
-		<div class="info_card bottom_copyright"><p style="padding: 0">© 2020 Nathan Whitcome</p></div>
+		<div class="info_card bottom_copyright"><p style="padding: 0">© 2021 Nathan Whitcome</p></div>
 	</div>
 </template>
 

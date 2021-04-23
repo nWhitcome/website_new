@@ -3,6 +3,38 @@
     <div class="info_card">
       <div class="inner_box">
         <div class="button_bar">
+          <h1>Wireless MIDI Over WiFi</h1>
+          <CustomButton
+            text_val="Github"
+            r_val="85"
+            g_val="85"
+            b_val="85"
+            link_value="https://github.com/nWhitcome/Wireless-MIDI"
+          ></CustomButton>
+          <CustomButton
+            text_val="YouTube"
+            r_val="168"
+            g_val="56"
+            b_val="59"
+            link_value="https://www.youtube.com/watch?v=TV7AIoCRtCs"
+          ></CustomButton>
+          </div>
+        <p>
+          This is a project I created for my CPR E 543 class. I created a client that read MIDI data over USB and sent it to a server running on my 
+          desktop, where the information was processed so it could be sent to a digital audio workstation.
+        </p>
+        <p>
+          The coding portion of this project wasn't too difficult, although it did involve me doing some C++ programming, which I am still a beginner at.
+          There are some issues that I mention in the video below, where I give a presentation and demo for the project.
+        </p>
+        <MinimizeContent :closed_prop="true"
+          html_insert="<div class='video-container'><iframe src='https://www.youtube.com/embed/TV7AIoCRtCs' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></div>"
+        ></MinimizeContent>
+      </div>
+    </div>
+    <div class="info_card">
+      <div class="inner_box">
+        <div class="button_bar">
           <h1>Senior Design Group 36</h1>
           <CustomButton
             text_val="Webpage"
@@ -14,14 +46,12 @@
         </div>
         <p>
           The senior design project that I have been involved with this year is called Open-Source Prototyping of 5G Wireless Systems for UGV/UAV,
-          which basically means that we are working on experimental 5G networking systems to be used in unmanned ground and air vehicles.
+          which involves experimental 5G networking systems to be used in unmanned ground and air vehicles.
         </p>
         <p>
           My role in the project has changed as time has progressed. I started out as part of a team trying to get OpenAirInterface, or OAI, working,
           which is an open-source 5G simulation and testing software. I have switched over to using SUMO, which is a program that simulates traffic
-          of vehicles on a given area, which we want to use to send data to be simulated over to OAI for testing. My job right now is to create software
-          using visual C++ to give a visual representation of this data as well as where cell towers and devices that connect to those towers would be
-          located.
+          of vehicles on a given area, which we want to use to send data to be simulated over to OAI for testing.
         </p>
         <p>
           I've learned a lot about how incredibly difficult it can be to get open source code running. OAI requires very specific hardware and software
@@ -30,7 +60,7 @@
         </p>
         <p>
           The project doesn't involve very much coding, so I haven't learned a lot in that respect, but I have learned a lot about how wireless cell systems
-          work. Right now I'm learning visual C++, which I have no experience with at all.
+          work. Right now I'm learning C++, which I have very little experience with even though I have used C and Java quite a bit.
         </p>
         <p>
           Overall, this project is quite exciting for the future of wireless communication. The goal is to implement a new algorithm that would increase the reliability
@@ -38,7 +68,7 @@
           been interesting, although it is hard to work with since it's so new.
         </p>
         <h2>IRP Presentation</h2>
-        <MinimizeContent
+        <MinimizeContent :closed_prop="true"
           html_insert="<embed src='src/assets/senior_design/IRP_Presentation.pdf' class='general_iframe' frameBorder='0'/>"
         ></MinimizeContent>
         <br>
@@ -68,7 +98,7 @@
           ></CustomButton>
         </div>
         <p>
-          I started learning how to play the drums last year after years of wanting to learn how to play. I eventually stumbled across what is called a sticking pattern, which spells out differnet patterns
+          I started learning how to play the drums last year after years of wanting to learn. I eventually stumbled across what is called a sticking pattern, which spells out differnet patterns
           in which you can hit the drums. There are three letters, R for right hand, L for left hand, and K for kick drum and they are arranged in unique patterns as a way of practicing and coming
           up with drum patterns and fills.
         </p>
@@ -88,7 +118,7 @@
           <li>Dark theme</li>
         </ol>
         <br />
-        <MinimizeContent
+        <MinimizeContent :closed_prop="true"
           html_insert="<iframe src='https://sticking-pattern.netlify.app/' class='general_iframe' frameBorder='0'></iframe>"
         ></MinimizeContent>
       </div>
@@ -158,7 +188,7 @@
             href="http://www.davidwhitcome.com"
           >David Whitcome</a> involved, so we might work on the project together at some point in the future.
         </p>
-        <MinimizeContent
+        <MinimizeContent :closed_prop="true"
           html_insert="<iframe src='https://hackisu2018dev.herokuapp.com/' class='general_iframe' frameBorder='0'></iframe>"
         ></MinimizeContent>
       </div>
@@ -188,10 +218,12 @@
           in any other way other than through the program or the song ending. That should be a pretty easy fix when I have time.
         </p>
         <div class="multi_image_holder">
-          <img
-            style="max-width: 600px; padding: 0 4px;"
-            src="src/assets/project_pictures/lifx_spotify/lifx_gif_opt.gif"
-          />
+          <MinimizeContent :closed_prop="true"
+          html_insert="<img
+            style='max-width: 600px; padding: 0 4px;'
+            src='src/assets/project_pictures/lifx_spotify/lifx_gif_opt.gif'
+          />"
+          ></MinimizeContent>
         </div>
       </div>
     </div>
@@ -212,13 +244,13 @@
           other departments face-to-face to understand what our customers are really looking for in a product.
         </p>
         <p>
-          I didn't do a dont of evaluations while I was there since it was such a small company, but I did give many presentations and walk-throughs of the project.
+          I didn't do a ton of evaluations while I was there since it was such a small company, but I did give many presentations and walk-throughs of the project.
           I learned that it's quite easy to talk about something when you're really passionate about it and know it like the back of your hand. Presntations have always
           been easy for me, so it was an enjoyable experience. I don't have have any pictures or anything of the finished product since it's still under active development.
         </p>
       </div>
     </div>
-    <div class="info_card">
+    <!--<div class="info_card">
       <div class="inner_box">
         <div class="button_bar">
           <h1>Old Website</h1>
@@ -248,40 +280,9 @@
           html_insert="<iframe src='https://nWhitcome.github.io' class='general_iframe' frameBorder='0'></iframe>"
         ></MinimizeContent>
       </div>
-    </div>
-    <div class="info_card">
-      <div class="inner_box">
-        <div class="button_bar">
-          <h1>CPR E 494 Reflections</h1>
-        </div>
-        <p>
-          Below are a couple relections I did about my experience at Iowa State. I thought I'd put it all here since my webpage is getting kind of cluttered with all
-          those tabs at the top.
-        </p>
-        <h2>General Education</h2>
-        <MinimizeContent :closed_prop="true"
-          html_insert="<embed src='./src/assets/senior_design/GE_Reflection.pdf' class='general_iframe' frameBorder='0'/>"
-        ></MinimizeContent>
-        <br />
-        <h2>Cumulative</h2>
-        <MinimizeContent :closed_prop="true"
-          html_insert="<embed src='./src/assets/senior_design/Cumulative_Reflection.pdf' class='general_iframe' frameBorder='0'/>"
-        ></MinimizeContent>
-      </div>
-    </div>
-    <div class="info_card">
-      <div class="inner_box">
-        <div class="button_bar">
-          <h1>394 Ethics Essay</h1>
-        </div>
-        <p>I had to write an ethics essay for my Cpr E 394 class, and it made me think about where I draw the line with my personal etics. I've become more involved in politics recently, and having this assignment made me think more about my impact on the world than I have before.</p>
-        <MinimizeContent :closed_prop="true"
-          html_insert="<embed src='./src/assets/Ethics_Essay.pdf' class='general_iframe' frameBorder='0'/>"
-        ></MinimizeContent>
-      </div>
-    </div>
+    </div> -->
     <div class="info_card bottom_copyright">
-      <p style="padding: 0">© 2020 Nathan Whitcome</p>
+      <p style="padding: 0">© 2021 Nathan Whitcome</p>
     </div>
   </div>
 </template>

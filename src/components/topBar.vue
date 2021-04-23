@@ -10,7 +10,7 @@
         <div
           v-bind:class="{projects_text_selected: (selected == 'projects_text' || top_hover.pr === true)}"
           class="projects_text"
-        >Projects</div>
+        >Portfolio</div>
         <div
           v-bind:class="{projects_text_selected_clear: (selected == 'photos_text' || top_hover.ph == true)}"
           class="projects_text"
@@ -46,7 +46,7 @@
           class="projects_text"
           v-bind:class="{projects_text_selected_clear: (selected == 'projects_text' || top_hover.pr == true)}"
           @click="headingClicked(false, 'projects_text')"
-        >Projects</div>
+        >Portfolio</div>
         <div
           @mouseenter="top_hover.ph = true;"
           @mouseleave="top_hover.ph = false"
@@ -209,7 +209,7 @@ export default {
 <style lang="scss">
 #fullscreen_icon{
     color: rgba(255, 255, 255, 1);
-    position: fixed;
+    position: absolute;
     right: 10px;
     font-size: 60px;
     z-index: 6;
