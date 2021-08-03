@@ -154,16 +154,160 @@ export default {
           date: "Fall 2020"
         },
         {
-          link: "src/assets/background_pictures/Lockwood.jpg",
+          link: "src/assets/background_pictures/Reiman.jpg",
           id: 22,
-          location: "Lockwood Cafe, Ames, IA",
+          location: "Reiman Gardens, Ames, IA",
           date: "Winter 2020"
         },
         {
-          link: "src/assets/background_pictures/Reiman.jpg",
+          link: "src/assets/background_pictures/Nebraska.jpg",
           id: 23,
-          location: "Reiman Gardens, Ames, IA",
-          date: "Winter 2020"
+          location: "Cedar View Campground, Nebraska",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/Rockies.jpg",
+          id: 24,
+          location: "Bear Lake, Rocky Mountain National Park, Colorado",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/DoubleArch.jpg",
+          id: 25,
+          location: "Double Arch, Arches National Park, Utah",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/Furnace.jpg",
+          id: 26,
+          location: "Fiery Furnace, Arches National Park, Utah",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/ClimbareaCanyonlands.jpg",
+          id: 27,
+          location: "Canyonlands National Park, Utah",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/BryceCanyon.jpg",
+          id: 28,
+          location: "Bryce Canyon National Park, Utah",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/ZionPath.jpg",
+          id: 29,
+          location: "Zion National Park, Utah",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/ZionRain.jpg",
+          id: 30,
+          location: "Zion National Park, Utah",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/ZionTop.jpg",
+          id: 31,
+          location: "Zion National Park, Utah",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/GrandCanyonSunset.jpg",
+          id: 32,
+          location: "Grand Canyon National Parks, Arizona",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/GrandCanyonLookout.jpg",
+          id: 33,
+          location: "Grand Canyon National Parks, Arizona",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/PetrifiedMounds.jpg",
+          id: 34,
+          location: "Petrified Forest National Park, Arizona",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/PetrifiedTree.jpg",
+          id: 35,
+          location: "Petrified Forest National Park, New Mexico",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/SandDunes.jpg",
+          id: 36,
+          location: "Great Sand Dunes National Park, Colorado",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/DriveByTruckers.jpg",
+          id: 37,
+          location: "Drive-By Truckers, Maha Festival, Omaha, Nebraska",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/JapaneseBreakfast.jpg",
+          id: 38,
+          location: "Japanese Breakfast, Maha Festival, Omaha, Nebraska",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/ThundercatFull.jpg",
+          id: 39,
+          location: "Thundercat, Maha Festival, Omaha, Nebraska",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/ThundercatSlick.jpg",
+          id: 40,
+          location: "Thundercat, Maha Festival, Omaha, Nebraska",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/ThundercatFace.jpg",
+          id: 41,
+          location: "Thundercat, Maha Festival, Omaha, Nebraska",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/ThundercatLight.jpg",
+          id: 42,
+          location: "Thundercat, Maha Festival, Omaha, Nebraska",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/ThundercatDrums.jpg",
+          id: 43,
+          location: "Thundercat, Maha Festival, Omaha, Nebraska",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/KhruangbinBlue.jpg",
+          id: 44,
+          location: "Khruangbin, Maha Festival, Omaha, Nebraska",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/KhruangbinLean.jpg",
+          id: 45,
+          location: "Khruangbin, Maha Festival, Omaha, Nebraska",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/KhruangbinYellow.jpg",
+          id: 46,
+          location: "Khruangbin, Maha Festival, Omaha, Nebraska",
+          date: "Summer 2021"
+        },
+        {
+          link: "src/assets/background_pictures/yoko.jpg",
+          id: 47,
+          location: "Yoko, Omaha, Nebraska",
+          date: "Summer 2021"
         },
       ],
       allow_click: true,
